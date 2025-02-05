@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import "./Home.css";
 import homeMobile from "../assets/homeMobile.jpg";
 import homeDesktop from "../assets/homeDesktop.jpg";
+import ControlledAccordions from "../components/ControlledAccordions";
+import { homeAccordionData } from "../data/HomeData";
 
 const Home = () => {
   const pageVariants = {
@@ -52,13 +54,19 @@ const Home = () => {
         >
           <div className="center-content">
             <div className="page-content">
-              <h2>Modern React Application</h2>
-              <p>Experience smooth animations and sleek design.</p>
+              <h1>Retiring in Spain made easy.</h1>
+              <p>
+                Invest in your furture, with the help of professional advisors.
+              </p>
             </div>
           </div>
         </motion.div>
       </div>
-      <div className="home-container">hello</div>
+      <ControlledAccordions
+        title="Our Services: Helping You Retire in Spain with Confidence"
+        subtitle="At Eureka, we provide expert guidance and customized solutions to help US citizens retire in Spain seamlessly. From visa applications to real estate investments, our team ensures a smooth transition so you can enjoy your dream retirement in Spain."
+        accordionData={homeAccordionData}
+      />
     </>
   );
 };

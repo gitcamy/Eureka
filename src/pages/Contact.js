@@ -98,17 +98,7 @@ const Contact = () => {
       exit="exit"
     >
       <Container maxWidth="md">
-        <Typography
-          variant="h2"
-          component="h1"
-          sx={{
-            mb: 4,
-            fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem" },
-            fontWeight: 600,
-          }}
-        >
-          Contact Us
-        </Typography>
+        <h1>Contact Us</h1>
 
         <Box
           sx={{

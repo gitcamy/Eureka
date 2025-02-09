@@ -7,27 +7,27 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: transparent;
   z-index: 1000;
 }
 
 .nav-brand a {
   font-size: 1.5rem;
-  font-weight: 600;
-  color: #333;
+  color: #000;
   text-decoration: none;
 }
 
 .nav-links {
   display: flex;
   gap: 2rem;
+  background-color: transparent;
+  align-items: end;
+  padding: 2rem;
 }
 
 .nav-links a {
-  color: #666;
+  color: #000;
   text-decoration: none;
-  font-weight: 500;
   transition: color 0.3s ease;
 }
 
@@ -35,11 +35,37 @@
   color: #333;
 }
 
+.hamburger {
+  display: none; /* Hidden by default */
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger div {
+  width: 25px;
+  height: 2px;
+  background-color: #000;
+  margin: 4px;
+  transition: all 0.3s ease;
+}
+
+/* Change to X when active */
+.hamburger.active div:nth-child(1) {
+  transform: rotate(45deg) translate(3px, 11px);
+}
+
+.hamburger.active div:nth-child(2) {
+  opacity: 0; /* Hide the middle line */
+}
+
+.hamburger.active div:nth-child(3) {
+  transform: rotate(-45deg) translate(3px, -11px);
+}
+
 /* Mobile responsive styles */
 @media (max-width: 768px) {
   .navbar {
     padding: 0.75rem 1rem;
-    flex-direction: column;
     gap: 0.5rem;
   }
 
@@ -48,11 +74,24 @@
   }
 
   .nav-links {
-    gap: 1rem;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px; /* Adjust based on your navbar height */
+    margin: 1.5rem;
+    left: 0;
+    right: 0;
+    background-color: #fffdf2;
+    z-index: 999;
+    transition: opacity 0.3s ease, transform 0.3s ease;
   }
 
-  .nav-links a {
-    font-size: 0.9rem;
+  .nav-links.active {
+    display: flex; /* Show links when active */
+  }
+
+  .hamburger {
+    display: flex; /* Show hamburger icon */
   }
 }
 

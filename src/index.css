@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+html {
+  background-color: #fffdf2;
+}
+
 /* Title fonts */
 h1,
 h2,
@@ -19,11 +23,22 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Big Caslon", serif; /* Replace with your chosen font */
+  font-family: "Big Caslon", serif, Georgia, Times, "Times New Roman";
+}
+
+p,
+a {
+  font-family: "Rethink Sans", sans-serif, Helvetica, Arial, sans-serif;
 }
 
 @font-face {
   font-family: "Big Caslon";
   src: url("../src/fonts/BigCaslonFB-Italic.woff"),
     url("../src/fonts/BigCaslonFB-Italic.woff2");
+}
+
+@font-face {
+  font-family: "Rethink Sans";
+  src: url("../src/fonts/RethinkSans-Italic-VariableFont_wght.ttf"),
+    url("../src/fonts/RethinkSans-VariableFont_wght.ttf");
 }

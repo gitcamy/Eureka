@@ -1,0 +1,19 @@
+div.container {
+  margin: 5rem 7rem;
+}
+
+.firstWord {
+  font-family: "Big Caslon";
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.textBlock {
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 480px) {
+  div.container {
+    margin: 2rem;
+  }
+}

@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+html {
+  background-color: #fffdf2;
+}
+
 /* Title fonts */
 h1,
 h2,
@@ -19,11 +23,47 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Big Caslon", serif; /* Replace with your chosen font */
+  font-family: "Big Caslon", serif, Georgia, Times, "Times New Roman";
+  font-weight: 500;
+}
+
+p,
+a {
+  font-family: "Rethink Sans", sans-serif, Helvetica, Arial, sans-serif;
+}
+
+button.primary {
+  background-color: #ebc16b;
+  border: 1px solid #000;
+  padding: 1rem 5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.6 ease;
+}
+
+button.primary:hover {
+  background-color: #eab54b;
+}
+
+button.primary:active {
+  background-color: #eab54b;
+  box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.142); /* Example box shadow */
+}
+
+div.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @font-face {
   font-family: "Big Caslon";
   src: url("../src/fonts/BigCaslonFB-Italic.woff"),
     url("../src/fonts/BigCaslonFB-Italic.woff2");
+}
+
+@font-face {
+  font-family: "Rethink Sans";
+  src: url("../src/fonts/RethinkSans-VariableFont_wght.woff"),
+    url("../src/fonts/RethinkSans-VariableFont_wght.woff2");
 }

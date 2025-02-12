@@ -11,7 +11,10 @@ div.container {
 .textBlock {
   margin-bottom: 1rem;
 }
-
+button {
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+}
 @media (max-width: 480px) {
   div.container {
     margin: 2rem;

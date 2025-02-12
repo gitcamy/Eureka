@@ -5,13 +5,8 @@ import "./Home.css";
 import beachHome from "../assets/beachHome.jpg";
 import Banner from "../components/banner.js";
 import WelcomeMessage from "../components/WelcomeMessage.js";
-import ControlledAccordions from "../components/ControlledAccordions.js";
-import {
-  homeAccordionData,
-  bannerText,
-  welcomeText,
-  getStarted,
-} from "../data/HomeData";
+import Services from "../components/Services.js";
+import { bannerText, welcomeText, getStarted } from "../data/HomeData";
 
 const Home = () => {
   const pageVariants = {
@@ -59,22 +54,11 @@ const Home = () => {
           initial="initial"
           animate="animate"
           exit="exit"
-        >
-          {/* <div className="center-content">
-            <h1>Retiring in Spain made easy.</h1>
-            <p>
-              Invest in your furture, with the help of professional advisors.
-            </p>
-          </div> */}
-        </motion.div>
+        ></motion.div>
       </div>
       <Banner message={bannerText} />
       <WelcomeMessage text={welcomeText} buttonTitle={getStarted} />
-      <ControlledAccordions
-        title="Our Services: Helping You Retire in Spain with Confidence"
-        subtitle="At Eureka, we provide expert guidance and customized solutions to help US citizens retire in Spain seamlessly. From visa applications to real estate investments, our team ensures a smooth transition so you can enjoy your dream retirement in Spain."
-        accordionData={homeAccordionData}
-      />
+      <Services />
     </>
   );
 };

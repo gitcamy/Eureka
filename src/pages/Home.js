@@ -10,6 +10,7 @@ import Cards from "../components/Cards.js";
 import { bannerText, welcomeText, getStarted } from "../data/HomeData";
 import { useRef } from "react";
 import { Benefits } from "../data/CardsData.js";
+import Footer from "../components/footer.js";
 
 const Home = () => {
   const cardTitle = "Why Retire in Northern Spain?";
@@ -74,6 +75,7 @@ const Home = () => {
         transition={{ duration: 0.5, delay: 0.3 }}
       >
         <Cards data={Benefits} title={cardTitle} />
+        <Footer />
       </motion.div>
     </>
   );

@@ -58,6 +58,8 @@
 @media screen and (max-width: 768px) {
   .mobile-bg-image {
     display: block;
+    object-fit: cover;
+    width: 100%;
   }
 
   .desktop-bg-image {

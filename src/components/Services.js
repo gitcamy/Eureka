@@ -5,7 +5,7 @@ import "./Services.css";
 function Services() {
   return (
     <div className="container">
-      <div className="container divContainer">
+      <div className="container divContainer" style={{ paddingTop: "4rem" }}>
         <h1>Our Services</h1>
         <hr></hr>
         <div className="subTitleContainer">

@@ -11,6 +11,7 @@ import { bannerText, welcomeText, getStarted } from "../data/HomeData";
 import { useRef } from "react";
 import { Benefits } from "../data/CardsData.js";
 import Footer from "../components/footer.js";
+import Navbar from "../components/Navbar.js";
 
 const Home = () => {
   const cardTitle = "Why Retire in Northern Spain?";
@@ -27,6 +28,7 @@ const Home = () => {
   return (
     <>
       <div className="home-container">
+        <Navbar />
         <motion.div
           className="mobile-bg-image"
           initial={{ opacity: 0 }}

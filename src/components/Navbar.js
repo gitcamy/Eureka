@@ -1,31 +1,30 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { useEffect, useState, useCallback } from "react";
+// import { useEffect, useState, useCallback } from "react";
 import "./Navbar.css";
 
 const Navbar = () => {
-  const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  // const [isVisible, setIsVisible] = useState(true);
+  // const [lastScrollY, setLastScrollY] = useState(0);
 
-  const handleScroll = useCallback(() => {
-    if (typeof window !== "undefined") {
-      if (window.scrollY > lastScrollY) {
-        setIsVisible(false);
-      } else {
-        setIsVisible(true);
-      }
-      setLastScrollY(window.scrollY);
-    }
-  }, [lastScrollY]); // Add lastScrollY as a dependency
+  // const handleScroll = useCallback(() => {
+  //   if (typeof window !== "undefined") {
+  //     if (window.scrollY > lastScrollY) {
+  //       setIsVisible(false);
+  //     } else {
+  //       setIsVisible(true);
+  //     }
+  //     setLastScrollY(window.scrollY);
+  //   }
+  // }, [lastScrollY]); // Add lastScrollY as a dependency
 
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+  // useEffect(() => {
+  //   window.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [handleScroll]); // Include handleScroll in the dependency array
-
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, [handleScroll]); // Include handleScroll in the dependency array
 
   function toggleMenu() {
     const navLinks = document.querySelector(".nav-links");
@@ -36,10 +35,10 @@ const Navbar = () => {
   }
 
   return (
-    <nav className={`navbar ${isVisible ? "visible" : "hidden"}`}>
+    <nav className="navbar">
       <div className="nav-brand">
         <Link to="/">
-          <h2>Eureka</h2>
+          <h1>Punta Galea</h1>
         </Link>
       </div>
       <div className="hamburger" onClick={toggleMenu}>

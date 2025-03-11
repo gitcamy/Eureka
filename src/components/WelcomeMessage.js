@@ -19,7 +19,7 @@ const WelcomeMessage = ({ text, buttonTitle }) => {
       ))}
       <div className="center">
         <Link to="/contact">
-          <button className="primary" link>
+          <button className="secondary" link>
             {buttonTitle}
           </button>
         </Link>

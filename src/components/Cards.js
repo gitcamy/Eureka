@@ -43,7 +43,7 @@ const StackedbenefitsCards = ({ data, title }) => {
       top: `${verticalOffset}px`,
       left: `${horizontalOffset}px`,
       width: isMobile ? "70%" : "100%",
-      height: isMobile ? 300 : 500,
+      height: isMobile ? 400 : 500,
       transform: isActive
         ? "scale(1)"
         : `scale(${0.95 - Math.abs(diff) * 0.05})`,
@@ -57,14 +57,7 @@ const StackedbenefitsCards = ({ data, title }) => {
   };
 
   return (
-    <div
-      style={{
-        width: "100%",
-        maxWidth: "800px",
-        margin: "0 auto",
-        padding: "16px",
-      }}
-    >
+    <div className="card-container">
       <Typography
         variant="h3"
         align="center"
@@ -96,14 +89,7 @@ const StackedbenefitsCards = ({ data, title }) => {
             &#8249;
           </Button>
 
-          <div
-            style={{
-              position: "relative",
-              width: "100%",
-              maxWidth: "500px",
-              height: "100%",
-            }}
-          >
+          <div className="card-object">
             {data.map((benefit, index) => (
               <>
                 {benefit.isImage === false ? (

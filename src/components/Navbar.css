@@ -1,8 +1,5 @@
 .navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -18,7 +15,7 @@
 
 .navbar.visible {
   transform: translateY(0); /* Move navbar into view */
-} 
+}
 
 .nav-brand a {
   font-size: 1.5rem;

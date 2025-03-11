@@ -9,7 +9,6 @@ button.card {
 
 .card {
   border-radius: 30%;
-
   border: 1px solid black;
 }
 
@@ -27,4 +26,30 @@ button.card {
 
 .text-container {
   padding: 2rem;
+}
+
+.card-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.card-object {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  height: 100%;
+}
+
+.card-sub-container {
+  position: "relative";
+  height: 600px;
+}
+
+@media (max-width: 480px) {
+  .card-sub-container {
+    position: "relative";
+    height: 400px;
+  }
 }

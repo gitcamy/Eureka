@@ -17,7 +17,13 @@ const ControlledAccordions = ({ accordionData, title, subtitle }) => {
   };
 
   return (
-    <Box sx={{ maxWidth: 800, mx: "auto", p: 2 }}>
+    <Box
+      sx={{
+        maxWidth: 800,
+        mx: "auto",
+        p: 2,
+      }}
+    >
       {title && (
         <h1 style={{ marginBottom: 5, textAlign: "start" }}>{title}</h1>
       )}
@@ -36,39 +42,52 @@ const ControlledAccordions = ({ accordionData, title, subtitle }) => {
               display: "none",
             },
             boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+            bgcolor: "white",
+            border: "1px solid black",
+            "&.MuiAccordion-root": {
+              borderRadius: 0, // Force border radius to 0
+            },
           }}
         >
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            sx={{
-              "&:hover": {
-                backgroundColor: "rgba(0, 0, 0, 0.04)",
-              },
-            }}
-          >
-            <Typography sx={{ fontWeight: 500 }}>{item.title}</Typography>
+          <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+            <Typography
+              sx={{
+                fontWeight: 500,
+                fontFamily: "Big Caslon",
+                fontSize: "1.5rem",
+              }}
+            >
+              {item.title}
+            </Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography
               dangerouslySetInnerHTML={{ __html: item.content }}
             ></Typography>
-            {item.learnMoreLink && (
-              <Button
-                variant="outlined"
-                href={item.learnMoreLink}
-                sx={{
-                  mt: 2,
-                  textTransform: "none",
-                  borderColor: "primary.main",
-                  "&:hover": {
-                    borderColor: "primary.dark",
-                  },
-                }}
-              >
-                Learn More
-              </Button>
-            )}
           </AccordionDetails>
+          {item.learnMoreLink && (
+            <Button
+              variant="outlined"
+              href={item.learnMoreLink}
+              sx={{
+                mt: 2,
+                textTransform: "none",
+                backgroundColor: "#EBC16B",
+                width: "100%",
+                border: 0,
+                color: "black",
+                fontFamily: "Rethink Sans",
+                fontWeight: 600,
+                borderRadius: 0,
+                justifyContent: "start",
+                "&:hover": {
+                  backgroundColor: "#eab54b",
+                },
+              }}
+            >
+              learn more →
+            </Button>
+          )}
         </Accordion>
       ))}
     </Box>

@@ -1,14 +1,20 @@
 .navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
   background: transparent;
   z-index: 1000;
+  transition: transform 0.3s ease;
+}
+
+.navbar.hidden {
+  transform: translateY(-100%); /* Move navbar out of view */
+}
+
+.navbar.visible {
+  transform: translateY(0); /* Move navbar into view */
 }
 
 .nav-brand a {

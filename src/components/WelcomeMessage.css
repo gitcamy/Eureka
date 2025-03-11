@@ -1,5 +1,5 @@
 div.container {
-  margin: 5rem 7rem;
+  margin: 5rem 10rem;
 }
 
 .firstWord {
@@ -11,9 +11,12 @@ div.container {
 .textBlock {
   margin-bottom: 1rem;
 }
-
+button {
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+}
 @media (max-width: 480px) {
   div.container {
-    margin: 2rem;
+    margin: 3rem;
   }
 }

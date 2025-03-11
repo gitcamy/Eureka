@@ -11,6 +11,7 @@ import {
   Snackbar,
 } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
+import Footer from "../components/footer.js";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -90,119 +91,125 @@ const Contact = () => {
   };
 
   return (
-    <motion.div
-      className="page"
-      variants={pageVariants}
-      initial="initial"
-      animate="animate"
-      exit="exit"
-    >
-      <Container maxWidth="md">
-        <h1>Contact Us</h1>
-
-        <Box
-          sx={{
-            backgroundColor: "white",
-            borderRadius: 2,
-            boxShadow: 1,
-            p: { xs: 2, sm: 3, md: 4 },
-          }}
-        >
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.2 }}
-          >
-            <Typography variant="h4" sx={{ mb: 1 }}>
-              Get in Touch
-            </Typography>
-            <Typography variant="body1" sx={{ mb: 4, color: "text.secondary" }}>
-              We'd love to hear from you!
-            </Typography>
-          </motion.div>
-
-          <motion.form
-            onSubmit={handleSubmit}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4 }}
-          >
-            <Stack spacing={3}>
-              <TextField
-                fullWidth
-                label="Name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                error={!!errors.name}
-                helperText={errors.name}
-                variant="outlined"
-              />
-
-              <TextField
-                fullWidth
-                label="Email"
-                name="email"
-                type="email"
-                value={formData.email}
-                onChange={handleChange}
-                error={!!errors.email}
-                helperText={errors.email}
-                variant="outlined"
-              />
-
-              <TextField
-                fullWidth
-                label="Message"
-                name="message"
-                multiline
-                rows={4}
-                value={formData.message}
-                onChange={handleChange}
-                error={!!errors.message}
-                helperText={errors.message}
-                variant="outlined"
-              />
-
-              <Button
-                type="submit"
-                variant="contained"
-                size="large"
-                endIcon={<SendIcon />}
-                sx={{
-                  mt: 2,
-                  py: 1.5,
-                  bgcolor: "primary.main",
-                  "&:hover": {
-                    bgcolor: "primary.dark",
-                    transform: "translateY(-2px)",
-                    transition: "all 0.3s ease",
-                  },
-                }}
-              >
-                Send Message
-              </Button>
-            </Stack>
-          </motion.form>
-        </Box>
-      </Container>
-
-      <Snackbar
-        open={showSuccess}
-        autoHideDuration={6000}
-        onClose={() => setShowSuccess(false)}
-        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+    <>
+      <motion.div
+        className="page"
+        variants={pageVariants}
+        initial="initial"
+        animate="animate"
+        exit="exit"
       >
-        <Alert
+        <Container maxWidth="md">
+          <h1>Contact Us</h1>
+
+          <Box
+            sx={{
+              backgroundColor: "white",
+              borderRadius: 2,
+              boxShadow: 1,
+              p: { xs: 2, sm: 3, md: 4 },
+            }}
+          >
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2 }}
+            >
+              <Typography variant="h4" sx={{ mb: 1 }}>
+                Get in Touch
+              </Typography>
+              <Typography
+                variant="body1"
+                sx={{ mb: 4, color: "text.secondary" }}
+              >
+                We'd love to hear from you!
+              </Typography>
+            </motion.div>
+
+            <motion.form
+              onSubmit={handleSubmit}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4 }}
+            >
+              <Stack spacing={3}>
+                <TextField
+                  fullWidth
+                  label="Name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  error={!!errors.name}
+                  helperText={errors.name}
+                  variant="outlined"
+                />
+
+                <TextField
+                  fullWidth
+                  label="Email"
+                  name="email"
+                  type="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  error={!!errors.email}
+                  helperText={errors.email}
+                  variant="outlined"
+                />
+
+                <TextField
+                  fullWidth
+                  label="Message"
+                  name="message"
+                  multiline
+                  rows={4}
+                  value={formData.message}
+                  onChange={handleChange}
+                  error={!!errors.message}
+                  helperText={errors.message}
+                  variant="outlined"
+                />
+
+                <Button
+                  type="submit"
+                  variant="contained"
+                  size="large"
+                  endIcon={<SendIcon />}
+                  sx={{
+                    mt: 2,
+                    py: 1.5,
+                    bgcolor: "primary.main",
+                    "&:hover": {
+                      bgcolor: "primary.dark",
+                      transform: "translateY(-2px)",
+                      transition: "all 0.3s ease",
+                    },
+                  }}
+                >
+                  Send Message
+                </Button>
+              </Stack>
+            </motion.form>
+          </Box>
+        </Container>
+
+        <Snackbar
+          open={showSuccess}
+          autoHideDuration={6000}
           onClose={() => setShowSuccess(false)}
-          severity="success"
-          variant="filled"
-          sx={{ width: "100%" }}
+          anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
         >
-          Message sent successfully!
-        </Alert>
-      </Snackbar>
-    </motion.div>
+          <Alert
+            onClose={() => setShowSuccess(false)}
+            severity="success"
+            variant="filled"
+            sx={{ width: "100%" }}
+          >
+            Message sent successfully!
+          </Alert>
+        </Snackbar>
+      </motion.div>
+      <Footer />
+    </>
   );
 };
 

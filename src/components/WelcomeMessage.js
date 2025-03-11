@@ -11,7 +11,6 @@ const WelcomeMessage = ({ text, buttonTitle }) => {
     <div className="container">
       <p className="textBlock">
         <span className="firstWord">{firstWord}</span> {remainingText}{" "}
-        {/* Render the first word with special styling */}
       </p>
       {text.slice(1).map((block, index) => (
         <p key={index} className="textBlock">
@@ -20,7 +19,7 @@ const WelcomeMessage = ({ text, buttonTitle }) => {
       ))}
       <div className="center">
         <Link to="/contact">
-          <button className="primary" link>
+          <button className="secondary" link>
             {buttonTitle}
           </button>
         </Link>

@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./BackToTopButton.css"; // Optional: Create a CSS file for styling
+import { MobileContext } from "../context/MobileContext"; // Import the context
 
 const BackToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const isMobile = useContext(MobileContext);
 
   const toggleVisibility = () => {
     if (window.pageYOffset > 300) {
@@ -21,19 +23,24 @@ const BackToTopButton = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", toggleVisibility);
+
     return () => {
       window.removeEventListener("scroll", toggleVisibility);
     };
   }, []);
 
   return (
-    <button
-      className={`back-to-top ${isVisible ? "visible" : ""}`}
-      onClick={scrollToTop}
-      style={{ display: isVisible ? "block" : "none" }} // Show/hide button
-    >
-      ↑ Back to Top
-    </button>
+    <>
+      {isVisible && (
+        <button
+          className="back-to-top" // Add a class for mobile styling if needed
+          onClick={scrollToTop}
+        >
+          {isMobile ? <i className="fa fa-angles-up"></i> : "↑ Back to Top"}{" "}
+          {/* Render different text for mobile */}
+        </button>
+      )}
+    </>
   );
 };
 

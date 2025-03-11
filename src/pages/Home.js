@@ -1,17 +1,17 @@
 import { motion, useInView } from "framer-motion";
 import "./Home.css";
-// import homeMobile from "../assets/homeMobile.jpg";
-// import homeDesktop from "../assets/homeDesktop.jpg";
 import homeImage from "../assets/gazte.jpg";
 import Banner from "../components/banner.js";
 import WelcomeMessage from "../components/WelcomeMessage.js";
 import Services from "../components/Services.js";
 import Cards from "../components/Cards.js";
 import { bannerText, welcomeText, getStarted } from "../data/HomeData";
-import { useRef } from "react";
+import { useRef, useContext } from "react";
 import { Benefits } from "../data/CardsData.js";
 import Footer from "../components/footer.js";
 import Navbar from "../components/Navbar.js";
+import MobileCards from "../components/MobileCards.js";
+import { MobileContext } from "../context/MobileContext";
 
 const Home = () => {
   const cardTitle = "Why Retire in Northern Spain?";
@@ -19,6 +19,7 @@ const Home = () => {
   const welcomeRef = useRef(null);
   const servicesRef = useRef(null);
   const cardsRef = useRef(null);
+  const isMobile = useContext(MobileContext);
 
   // Use useInView for each component
   const welcomeInView = useInView(welcomeRef, { once: true });
@@ -76,7 +77,12 @@ const Home = () => {
         exit={{ opacity: 0, y: -20 }}
         transition={{ duration: 0.5, delay: 0.3 }}
       >
-        <Cards data={Benefits} title={cardTitle} />
+        {isMobile ? (
+          <MobileCards title={cardTitle} data={Benefits} />
+        ) : (
+          <Cards data={Benefits} title={cardTitle} />
+        )}
+
         <Footer />
       </motion.div>
     </>

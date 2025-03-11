@@ -17,6 +17,6 @@ button {
 }
 @media (max-width: 480px) {
   div.container {
-    margin: 2rem;
+    margin: 3rem;
   }
 }

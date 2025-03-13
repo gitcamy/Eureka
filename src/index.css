@@ -59,15 +59,22 @@ button.secondary {
   font-size: 1rem;
   transition: background-color 0.6 ease;
   color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
 }
 
 button.secondary:hover {
   background-color: #96c2e2;
+  transition: transform 0.2s ease;
+  transform: translateY(-5px);
 }
 
 button.secondary:active {
   background-color: #76b0d8;
   box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.142); /* Example box shadow */
+  transform: translateY(0);
 }
 
 div.center {

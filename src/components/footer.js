@@ -1,7 +1,14 @@
 import styles from "./footer.module.css";
 import { Link } from "react-router-dom";
 
-export default function Footer() {
+export default function Footer({ scrollToContact }) {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // Smooth scroll effect
+    });
+  };
+
   return (
     <div className={styles.box}>
       <div className={styles.footerContainerLeft}>
@@ -12,15 +19,15 @@ export default function Footer() {
         <span>invest@puntagalea.com</span>
       </div>
       <div className={styles.footerContainerRight}>
-        <Link to="/" className={styles.link}>
-          home
-        </Link>
+        <button onClick={scrollToTop} className={styles.footerButton}>
+          <p className={styles.footerLink}>home</p>
+        </button>
         <Link to="/about" className={styles.link}>
-          about
+          <p className={styles.footerLink}>about</p>
         </Link>
-        <Link to="/contact" className={styles.link}>
-          contact
-        </Link>
+        <button onClick={scrollToContact} className={styles.footerButton}>
+          <p className={styles.footerLink}>contact</p>
+        </button>
       </div>
     </div>
   );

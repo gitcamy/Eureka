@@ -7,7 +7,9 @@ const BackToTopButton = () => {
   const isMobile = useContext(MobileContext);
 
   const toggleVisibility = () => {
-    if (window.pageYOffset > 300) {
+    const footerOffset = document.body.offsetHeight - window.innerHeight; // Calculate the offset to the bottom of the page
+
+    if (window.pageYOffset > 300 && window.pageYOffset < footerOffset - 300) {
       setIsVisible(true);
     } else {
       setIsVisible(false);

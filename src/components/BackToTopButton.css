@@ -10,7 +10,6 @@
   cursor: pointer;
   font-family: "Big Caslon", serif;
   transition: opacity 0.3s ease;
-  opacity: 0.7; /* Slightly transparent */
 }
 
 .back-to-top.visible {

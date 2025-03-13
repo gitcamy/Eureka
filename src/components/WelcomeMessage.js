@@ -2,7 +2,7 @@ import "./WelcomeMessage.css";
 import { Link } from "react-router-dom";
 import React from "react";
 
-const WelcomeMessage = ({ text, buttonTitle }) => {
+const WelcomeMessage = ({ text, buttonTitle, scrollToContact }) => {
   const firstSentence = text[0];
   const words = firstSentence.split(" ");
   const firstWord = words[0]; // Get the first word
@@ -18,11 +18,9 @@ const WelcomeMessage = ({ text, buttonTitle }) => {
         </p>
       ))}
       <div className="center">
-        <Link to="/contact">
-          <button className="secondary" link>
-            {buttonTitle}
-          </button>
-        </Link>
+        <button className="secondary" onClick={scrollToContact}>
+          {buttonTitle}
+        </button>
       </div>
     </div>
   );

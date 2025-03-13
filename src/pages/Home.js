@@ -12,6 +12,7 @@ import Footer from "../components/footer.js";
 import Navbar from "../components/Navbar.js";
 import MobileCards from "../components/MobileCards.js";
 import { MobileContext } from "../context/MobileContext";
+import Contact from "../components/Contact.js";
 
 const Home = () => {
   const cardTitle = "Why Retire in Northern Spain?";
@@ -19,6 +20,7 @@ const Home = () => {
   const welcomeRef = useRef(null);
   const servicesRef = useRef(null);
   const cardsRef = useRef(null);
+  const contactRef = useRef(null);
   const isMobile = useContext(MobileContext);
 
   // Use useInView for each component
@@ -26,10 +28,16 @@ const Home = () => {
   const servicesInView = useInView(servicesRef, { once: true });
   const cardsInView = useInView(cardsRef, { once: true });
 
+  const scrollToContact = () => {
+    if (contactRef.current) {
+      contactRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <>
       <div className="home-container">
-        <Navbar />
+        <Navbar scrollToContact={scrollToContact} />
         <motion.div
           className="mobile-bg-image"
           initial={{ opacity: 0 }}
@@ -59,7 +67,11 @@ const Home = () => {
         exit={{ opacity: 0, y: -20 }}
         transition={{ duration: 0.5, delay: 0.3 }}
       >
-        <WelcomeMessage text={welcomeText} buttonTitle={getStarted} />
+        <WelcomeMessage
+          text={welcomeText}
+          buttonTitle={getStarted}
+          scrollToContact={scrollToContact}
+        />
       </motion.div>
       <motion.div
         ref={servicesRef}
@@ -82,8 +94,10 @@ const Home = () => {
         ) : (
           <Cards data={Benefits} title={cardTitle} />
         )}
-
-        <Footer />
+        <section ref={contactRef}>
+          <Contact />
+        </section>
+        <Footer scrollToContact={scrollToContact} />
       </motion.div>
     </>
   );

@@ -26,6 +26,11 @@ span {
   font-size: 0.8rem;
 }
 
+p.footerLink {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
 .box {
   display: flex;
   background-color: #ebc16b;
@@ -34,7 +39,13 @@ span {
 }
 
 .link {
-  margin-bottom: 1rem;
   color: #000;
   text-decoration: none;
+}
+
+.footerButton {
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  cursor: pointer;
 }

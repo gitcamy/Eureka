@@ -1,9 +1,10 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 // import { useEffect, useState, useCallback } from "react";
 import "./Navbar.css";
 
-const Navbar = () => {
+const Navbar = ({ scrollToContact }) => {
   // const [isVisible, setIsVisible] = useState(true);
   // const [lastScrollY, setLastScrollY] = useState(0);
 
@@ -53,9 +54,9 @@ const Navbar = () => {
         <Link to="/about">
           <motion.span whileHover={{ scale: 1.1 }}>about</motion.span>
         </Link>
-        <Link to="/contact">
+        <button className="nav-button" onClick={scrollToContact}>
           <motion.span whileHover={{ scale: 1.1 }}>contact</motion.span>
-        </Link>
+        </button>
       </div>
     </nav>
   );

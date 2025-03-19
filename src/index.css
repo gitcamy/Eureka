@@ -32,6 +32,10 @@ a {
   font-family: "Rethink Sans", sans-serif, Helvetica, Arial, sans-serif;
 }
 
+.bg-yellow {
+  background-color: #ebc16b;
+}
+
 button.primary {
   background-color: #ebc16b;
   border: 1px solid #000;

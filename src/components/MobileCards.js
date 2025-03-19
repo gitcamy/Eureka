@@ -53,6 +53,9 @@ function MobileCards({ title, data }) {
           </>
         )}
       </div>
+      <div className="swipe-msg-box">
+        <span>Swipe to find out &rarr;</span>
+      </div>
     </div>
   );
 }

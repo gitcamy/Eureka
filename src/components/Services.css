@@ -19,6 +19,11 @@ h1 {
   text-wrap: wrap;
 }
 
+.servicesTitleContainer {
+  margin-bottom: 4rem;
+  margin-top: 3rem;
+}
+
 @media (max-width: 480px) {
   hr {
     transform: rotate(0deg);

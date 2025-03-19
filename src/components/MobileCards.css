@@ -33,6 +33,15 @@
   border-radius: 10px;
 }
 
+.swipe-msg-box {
+  font-family: "Big Caslon";
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
 .mobile-card-content {
   padding: 1rem;
 }

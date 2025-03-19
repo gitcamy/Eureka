@@ -5,7 +5,12 @@ import Banner from "../components/banner.js";
 import WelcomeMessage from "../components/WelcomeMessage.js";
 import Services from "../components/Services.js";
 import Cards from "../components/Cards.js";
-import { bannerText, welcomeText, getStarted } from "../data/HomeData";
+import {
+  bannerText,
+  welcomeText,
+  getStarted,
+  welcomeCards,
+} from "../data/HomeData";
 import { useRef, useContext } from "react";
 import { Benefits } from "../data/CardsData.js";
 import Footer from "../components/footer.js";
@@ -71,6 +76,7 @@ const Home = () => {
           text={welcomeText}
           buttonTitle={getStarted}
           scrollToContact={scrollToContact}
+          welcomeCards={welcomeCards}
         />
       </motion.div>
       <motion.div
@@ -79,6 +85,7 @@ const Home = () => {
         animate={servicesInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         exit={{ opacity: 0, y: -20 }}
         transition={{ duration: 0.5, delay: 0.3 }}
+        className="bg-yellow"
       >
         <Services />
       </motion.div>

@@ -54,6 +54,10 @@
   z-index: 1;
 }
 
+.mobile-grow {
+  width: 50%;
+}
+
 /* Show background only on mobile */
 @media screen and (max-width: 768px) {
   .mobile-bg-image {
@@ -64,5 +68,12 @@
 
   .desktop-bg-image {
     display: none;
+  }
+
+  .mobile-hide {
+    display: none;
+  }
+  .mobile-grow {
+    width: 100%;
   }
 }

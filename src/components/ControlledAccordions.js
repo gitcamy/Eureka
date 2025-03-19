@@ -72,7 +72,7 @@ const ControlledAccordions = ({ accordionData, title, subtitle }) => {
               sx={{
                 mt: 2,
                 textTransform: "none",
-                backgroundColor: "#EBC16B",
+                backgroundColor: "#a1c2da",
                 width: "100%",
                 border: 0,
                 color: "black",
@@ -81,7 +81,7 @@ const ControlledAccordions = ({ accordionData, title, subtitle }) => {
                 borderRadius: 0,
                 justifyContent: "start",
                 "&:hover": {
-                  backgroundColor: "#eab54b",
+                  backgroundColor: "#96c2e2",
                 },
               }}
             >

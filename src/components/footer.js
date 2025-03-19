@@ -12,19 +12,19 @@ export default function Footer({ scrollToContact }) {
   return (
     <div className={styles.box}>
       <div className={styles.footerContainerLeft}>
-        <h1 className={styles.title}>Punta Galea Investments</h1>
+        <h1 className={styles.title}>Eureka Investments</h1>
         <p className={styles.subTitle}>
-          Retirement made easy in Northern Spain
+          Helping Americans relocate in Northern Spain
         </p>
-        <span>invest@puntagalea.com</span>
+        <span>invest@eurekaspain.com</span>
       </div>
       <div className={styles.footerContainerRight}>
         <button onClick={scrollToTop} className={styles.footerButton}>
           <p className={styles.footerLink}>home</p>
         </button>
-        <Link to="/about" className={styles.link}>
+        {/* <Link to="/about" className={styles.link}>
           <p className={styles.footerLink}>about</p>
-        </Link>
+        </Link> */}
         <button onClick={scrollToContact} className={styles.footerButton}>
           <p className={styles.footerLink}>contact</p>
         </button>

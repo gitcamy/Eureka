@@ -39,8 +39,9 @@ const Navbar = ({ scrollToContact }) => {
     <nav className="navbar">
       <div className="nav-brand">
         <Link to="/">
-          <h1>Punta Galea</h1>
+          <h1>Eureka</h1>
         </Link>
+        <span>find your golden property in Northern Spain</span>
       </div>
       <div className="hamburger" onClick={toggleMenu}>
         <div></div>
@@ -51,9 +52,9 @@ const Navbar = ({ scrollToContact }) => {
         <Link to="/">
           <motion.span whileHover={{ scale: 1.1 }}>home</motion.span>
         </Link>
-        <Link to="/about">
+        {/* <Link to="/about">
           <motion.span whileHover={{ scale: 1.1 }}>about</motion.span>
-        </Link>
+        </Link> */}
         <button className="nav-button" onClick={scrollToContact}>
           <motion.span whileHover={{ scale: 1.1 }}>contact</motion.span>
         </button>

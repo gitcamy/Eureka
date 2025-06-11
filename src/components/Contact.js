@@ -9,6 +9,10 @@ import {
   Snackbar,
 } from "@mui/material";
 import "./Contact.css";
+import { init, send } from "emailjs-com";
+
+// Initialize EmailJS with your public key
+init(process.env.REACT_APP_EMAILJS_USER_ID);
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -36,15 +40,34 @@ const Contact = () => {
     return newErrors;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const newErrors = validateForm();
     if (Object.keys(newErrors).length === 0) {
-      // Handle form submission
-      console.log("Form submitted:", formData);
-      setShowSuccess(true);
-      // Reset form
-      setFormData({ name: "", email: "", message: "" });
+      try {
+        const response = await send(
+          process.env.REACT_APP_EMAILJS_SERVICE_ID,
+          process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+          {
+            name: formData.name,
+            email: formData.email,
+            message: formData.message,
+          }
+        );
+
+        if (response.status === 200) {
+          console.log("Form submitted:", formData);
+          setShowSuccess(true);
+          setFormData({ name: "", email: "", message: "" });
+        } else {
+          console.error("Error sending email:", response);
+          alert(
+            "There was an error sending your message. Please try again later."
+          );
+        }
+      } catch (error) {
+        console.error("Error:", error);
+      }
     } else {
       setErrors(newErrors);
     }

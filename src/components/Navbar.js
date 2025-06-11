@@ -49,9 +49,9 @@ const Navbar = ({ scrollToContact }) => {
         <div></div>
       </div>
       <div className="nav-links">
-        <Link to="/" className="nav-button">
+        <button to="/" className="nav-button">
           <motion.span whileHover={{ scale: 1.1 }}>home</motion.span>
-        </Link>
+        </button>
         {/* <Link to="/about">
           <motion.span whileHover={{ scale: 1.1 }}>about</motion.span>
         </Link> */}

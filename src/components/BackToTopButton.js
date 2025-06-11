@@ -38,7 +38,11 @@ const BackToTopButton = () => {
           className="back-to-top" // Add a class for mobile styling if needed
           onClick={scrollToTop}
         >
-          {isMobile ? <i className="fa fa-angles-up"></i> : "↑ Back to Top"}{" "}
+          {isMobile ? (
+            <i className="fa fa-angles-up" style={{ color: "#000" }}></i>
+          ) : (
+            "↑ Back to Top"
+          )}{" "}
           {/* Render different text for mobile */}
         </button>
       )}

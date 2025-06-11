@@ -68,7 +68,7 @@ const Contact = () => {
   return (
     <>
       <div className="contact-container">
-        <h1 className="contact-header">Contact Us</h1>
+        <h1 className="contact-header no-wrap">Contact Us</h1>
 
         <Box
           sx={{

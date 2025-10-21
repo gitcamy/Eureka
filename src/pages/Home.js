@@ -1,111 +1,111 @@
 import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 import "./Home.css";
-import homeImage from "../assets/gazte.jpg";
-import Banner from "../components/banner.js";
-import WelcomeMessage from "../components/WelcomeMessage.js";
-import Services from "../components/Services.js";
-import Cards from "../components/Cards.js";
-import {
-  bannerText,
-  welcomeText,
-  getStarted,
-  welcomeCards,
-} from "../data/HomeData";
-import { useRef, useContext } from "react";
-import { Benefits } from "../data/CardsData.js";
-import Footer from "../components/footer.js";
 import Navbar from "../components/Navbar.js";
-import MobileCards from "../components/MobileCards.js";
-import { MobileContext } from "../context/MobileContext";
 import Contact from "../components/Contact.js";
 
 const Home = () => {
-  const cardTitle = "Why Retire in Northern Spain?";
-  // Create refs for each component
-  const welcomeRef = useRef(null);
+  const heroRef = useRef(null);
+  const aboutRef = useRef(null);
   const servicesRef = useRef(null);
-  const cardsRef = useRef(null);
+  const whyRef = useRef(null);
   const contactRef = useRef(null);
-  const isMobile = useContext(MobileContext);
 
-  // Use useInView for each component
-  const welcomeInView = useInView(welcomeRef, { once: true });
-  const servicesInView = useInView(servicesRef, { once: true });
-  const cardsInView = useInView(cardsRef, { once: true });
+  const heroInView = useInView(heroRef, { once: true, margin: "-20% 0px" });
+  const aboutInView = useInView(aboutRef, { once: true, margin: "-20% 0px" });
+  const servicesInView = useInView(servicesRef, { once: true, margin: "-20% 0px" });
+  const whyInView = useInView(whyRef, { once: true, margin: "-20% 0px" });
 
-  const scrollToContact = () => {
-    if (contactRef.current) {
-      contactRef.current.scrollIntoView({ behavior: "smooth" });
+  const scrollToSection = (event, sectionId) => {
+    if (event) event.preventDefault();
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
   return (
     <>
-      <div className="home-container">
-        <Navbar scrollToContact={scrollToContact} />
+      <Navbar />
+
+      {/* Hero */}
+      <section id="hero" className="section hero">
+        <div className="hero-images">
+          <img src={require("../assets/leftHome.jpg")} alt="Spanish architecture with pool" className="hero-image" />
+          <img src={require("../assets/rightHome.jpg")} alt="Classical Spanish apartment" className="hero-image" />
+        </div>
         <motion.div
-          className="mobile-bg-image"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          style={{ backgroundImage: `url(${homeImage})` }}
-        />
+          ref={heroRef}
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
+          className="hero-content"
+        >
+          <h1 className="hero-title">Find your golden property in Spain</h1>
+          <p className="hero-subtitle">Some text here about us being a boutique consulting agency for Americans looking to buy real estate abroad...</p>
+          <a href="#contact" className="cta" onClick={(e) => scrollToSection(e, "contact")}>Connect with us</a>
+        </motion.div>
+      </section>
+
+      {/* About */}
+      <section id="about" className="section">
         <motion.div
-          className="desktop-bg-image"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          style={{ backgroundImage: `url(${homeImage})` }}
-        />
+          ref={aboutRef}
+          initial={{ opacity: 0, y: 24 }}
+          animate={aboutInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="container"
+        >
+          <h2>About</h2>
+          <p>
+            We help international buyers discover, evaluate, and secure remarkable
+            properties across Northern Spain — with clarity, care, and local expertise.
+          </p>
+        </motion.div>
+      </section>
+
+      {/* Services */}
+      <section id="services" className="section section-alt">
         <motion.div
-          className="page"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-        ></motion.div>
-      </div>
-      <Banner message={bannerText} />
-      <motion.div
-        ref={welcomeRef}
-        initial={{ opacity: 0, y: 20 }}
-        animate={welcomeInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-        exit={{ opacity: 0, y: -20 }}
-        transition={{ duration: 0.5, delay: 0.3 }}
-      >
-        <WelcomeMessage
-          text={welcomeText}
-          buttonTitle={getStarted}
-          scrollToContact={scrollToContact}
-          welcomeCards={welcomeCards}
-        />
-      </motion.div>
-      <motion.div
-        ref={servicesRef}
-        initial={{ opacity: 0, y: 20 }}
-        animate={servicesInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-        exit={{ opacity: 0, y: -20 }}
-        transition={{ duration: 0.5, delay: 0.3 }}
-        className="bg-yellow"
-      >
-        <Services />
-      </motion.div>
-      <motion.div
-        ref={cardsRef}
-        initial={{ opacity: 0, y: 20 }}
-        animate={cardsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-        exit={{ opacity: 0, y: -20 }}
-        transition={{ duration: 0.5, delay: 0.3 }}
-      >
-        {isMobile ? (
-          <MobileCards title={cardTitle} data={Benefits} />
-        ) : (
-          <Cards data={Benefits} title={cardTitle} />
-        )}
-        <section ref={contactRef}>
+          ref={servicesRef}
+          initial={{ opacity: 0, y: 24 }}
+          animate={servicesInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="container services-grid"
+        >
+          <h2>Our Services</h2>
+          <ul className="cards">
+            <li className="card"><h3>Search & Discovery</h3><p>Curated listings and on-the-ground scouting.</p></li>
+            <li className="card"><h3>Advisory</h3><p>Due diligence, market context, and negotiation support.</p></li>
+            <li className="card"><h3>End-to-End</h3><p>From viewings to closing with vetted local partners.</p></li>
+          </ul>
+        </motion.div>
+      </section>
+
+      {/* Why Us */}
+      <section id="why" className="section">
+        <motion.div
+          ref={whyRef}
+          initial={{ opacity: 0, y: 24 }}
+          animate={whyInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="container why"
+        >
+          <h2>Why Us</h2>
+          <ul className="bullets">
+            <li>Independent, buyer-first guidance</li>
+            <li>Local knowledge across Basque Country, Cantabria, Asturias</li>
+            <li>Clear process, transparent pricing</li>
+          </ul>
+        </motion.div>
+      </section>
+
+      {/* Contact */}
+      <section id="contact" className="section">
+        <div ref={contactRef} className="container">
           <Contact />
-        </section>
-        <Footer scrollToContact={scrollToContact} />
-      </motion.div>
+        </div>
+      </section>
     </>
   );
 };

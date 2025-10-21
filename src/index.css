@@ -1,110 +1,19 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+/* Modern reset and typography */
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
+* { box-sizing: border-box; }
+html { background: #DEDCD0; scroll-behavior: smooth; }
+body { margin: 0; font-family: 'Tenor Sans', system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, sans-serif; color: #0b0b0b; }
 
-html {
-  background-color: #fffdf2;
-}
-
-/* Title fonts */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Big Caslon", serif, Georgia, Times, "Times New Roman";
+/* Local Big Caslon for headings */
+@font-face {
+  font-family: 'Big Caslon';
+  src: url('../src/fonts/BigCaslonFB-Italic.woff2') format('woff2'), url('../src/fonts/BigCaslonFB-Italic.woff') format('woff');
+  font-style: italic;
   font-weight: 500;
+  font-display: swap;
 }
 
-p,
-a {
-  font-family: "Rethink Sans", sans-serif, Helvetica, Arial, sans-serif;
-}
+h1,h2,h3,h4,h5,h6 { font-family: 'Big Caslon', Georgia, 'Times New Roman', serif; font-weight: 500; letter-spacing: -0.01em; }
+p { font-family: 'Tenor Sans', system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, sans-serif; line-height: 1.6; }
 
-.bg-yellow {
-  background-color: #ebc16b;
-}
-
-button.primary {
-  background-color: #ebc16b;
-  border: 1px solid #000;
-  padding: 1rem 5rem;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.6 ease;
-  color: #000;
-}
-
-button.primary:hover {
-  background-color: #eab54b;
-}
-
-button.primary:active {
-  background-color: #eab54b;
-  box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.142); /* Example box shadow */
-}
-
-button.secondary {
-  background-color: #a1c2da;
-  border: 1px solid #000;
-  padding: 1rem 5rem;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.6 ease;
-  color: #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-}
-
-button.secondary:hover {
-  background-color: #96c2e2;
-  transition: transform 0.2s ease;
-  transform: translateY(-5px);
-}
-
-button.secondary:active {
-  background-color: #76b0d8;
-  box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.142); /* Example box shadow */
-  transform: translateY(0);
-}
-
-div.center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-div.container {
-  margin: 5rem 7rem;
-}
-
-@font-face {
-  font-family: "Big Caslon";
-  src: url("../src/fonts/BigCaslonFB-Italic.woff"),
-    url("../src/fonts/BigCaslonFB-Italic.woff2");
-}
-
-@font-face {
-  font-family: "Rethink Sans";
-  src: url("../src/fonts/RethinkSans-VariableFont_wght.woff"),
-    url("../src/fonts/RethinkSans-VariableFont_wght.woff2");
-}
-
-@media (max-width: 480px) {
-  div.container {
-    margin: 2rem;
-  }
-}
+/* Remove legacy button styles - handled in component CSS */

@@ -1,10 +1,12 @@
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useContext } from "react";
 import "./Home.css";
 import Navbar from "../components/Navbar.js";
 import Contact from "../components/Contact.js";
+import { MobileContext } from "../context/MobileContext.js";
 
 const Home = () => {
+  const isMobile = useContext(MobileContext);
   const heroRef = useRef(null);
   const aboutRef = useRef(null);
   const servicesRef = useRef(null);
@@ -31,8 +33,14 @@ const Home = () => {
       {/* Hero */}
       <section id="hero" className="section hero">
         <div className="hero-images">
-          <img src={require("../assets/leftHome.jpg")} alt="Spanish architecture with pool" className="hero-image" />
-          <img src={require("../assets/rightHome.jpg")} alt="Classical Spanish apartment" className="hero-image" />
+          {isMobile ? (
+            <img src={require("../assets/leftHome.jpg")} alt="Spanish architecture with pool" className="hero-image-mobile" />
+          ) : (
+            <>
+              <img src={require("../assets/leftHome.jpg")} alt="Spanish architecture with pool" className="hero-image" />
+              <img src={require("../assets/rightHome.jpg")} alt="Classical Spanish apartment" className="hero-image" />
+            </>
+          )}
         </div>
         <motion.div
           ref={heroRef}
@@ -41,9 +49,9 @@ const Home = () => {
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
           className="hero-content"
         >
-          <h1 className="hero-title">Find your golden property in Spain</h1>
-          <p className="hero-subtitle">Some text here about us being a boutique consulting agency for Americans looking to buy real estate abroad...</p>
-          <a href="#contact" className="cta" onClick={(e) => scrollToSection(e, "contact")}>Connect with us</a>
+          <h1 className="hero-title">Buy, Sell, or Invest in Spanish Property — Strategically</h1>
+          <p className="hero-subtitle">We are a real estate consulting boutique specialized in helping U.S. citizens find, acquire, and manage property in Spain with clarity, confidence, and strategic insight.</p>
+          <a href="#contact" className="cta" onClick={(e) => scrollToSection(e, "contact")}>Schedule a consultation</a>
         </motion.div>
       </section>
 

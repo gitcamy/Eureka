@@ -47,7 +47,7 @@ const Navbar = ({ scrollToContact }) => {
     <nav className={`navbar ${isVisible ? 'visible' : 'hidden'}`}>
       <div className="nav-brand">
         <Link to="/">
-          <h2>Eureka</h2>
+          <h2>Eureka Investments</h2>
         </Link>
         <span>Find your golden property in Northern Spain</span>
       </div>
@@ -57,20 +57,23 @@ const Navbar = ({ scrollToContact }) => {
         <div></div>
       </div>
       <div className="nav-links">
+        <button className="close-menu" onClick={toggleMenu} aria-label="Close menu">
+          ×
+        </button>
         <a href="#hero" className="nav-button" onClick={(e) => scrollToSection(e, "hero")}>
-          <motion.span whileHover={{ scale: 1.1 }}>home</motion.span>
+          <motion.span whileHover={{ scale: 1.1 }}>Home</motion.span>
         </a>
         <a href="#about" className="nav-button" onClick={(e) => scrollToSection(e, "about")}>
-          <motion.span whileHover={{ scale: 1.1 }}>about</motion.span>
+          <motion.span whileHover={{ scale: 1.1 }}>About</motion.span>
         </a>
         <a href="#services" className="nav-button" onClick={(e) => scrollToSection(e, "services")}>
-          <motion.span whileHover={{ scale: 1.1 }}>services</motion.span>
+          <motion.span whileHover={{ scale: 1.1 }}>Services</motion.span>
         </a>
         <a href="#why" className="nav-button" onClick={(e) => scrollToSection(e, "why")}>
-          <motion.span whileHover={{ scale: 1.1 }}>why us</motion.span>
+          <motion.span whileHover={{ scale: 1.1 }}>Why Us</motion.span>
         </a>
         <a href="#contact" className="nav-button" onClick={(e) => scrollToSection(e, "contact")}>
-          <motion.span whileHover={{ scale: 1.1 }}>contact</motion.span>
+          <motion.span whileHover={{ scale: 1.1 }}>Contact</motion.span>
         </a>
       </div>
     </nav>

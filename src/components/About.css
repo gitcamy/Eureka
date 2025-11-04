@@ -1,0 +1,143 @@
+/* About Section - Desktop */
+.about-desktop {
+border-bottom: 1px solid #000000;
+border-top: 1px solid #000000;
+margin-bottom: 80px;
+margin-top: 80px;
+  padding: 80px 20px;
+}
+
+.about-top {
+  margin-bottom: 60px;
+}
+
+.about-intro {
+  font-family: 'Tenor Sans', system-ui, sans-serif;
+  line-height: 1.6;
+  color: #000000;
+  margin: 0 0 40px 0;
+  max-width: 800px;
+}
+
+.about-cta {
+  display: inline-block;
+  text-decoration: none;
+  background: #645116;
+  color: #FFFFFF;
+  padding: 12px 24px;
+  font-family: 'Tenor Sans', system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 4px;
+  text-align: center;
+}
+
+
+.about-title {
+  font-family: 'Big Caslon', Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-size: 56px;
+  font-weight: 500;
+  color: #333333;
+  margin: 0 0 40px 0;
+  line-height: 1.2;
+}
+
+.about-text-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.about-text {
+  font-family: 'Tenor Sans', system-ui, sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #333333;
+  margin: 0;
+}
+
+/* About Section - Mobile */
+.about-mobile {
+  background: #645116;
+  margin-bottom: 80px;
+  margin-top: 80px;
+  text-align: right;
+}
+
+.about-mobile .about-title {
+  font-family: 'Big Caslon', Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-size: 42px;
+  font-weight: 500;
+  color: #FFFFFF;
+  margin: 0 0 50px 0;
+  line-height: 1.2;
+}
+
+.about-mobile .about-text-columns {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.about-mobile .about-text {
+  line-height: 1.6;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-mobile {
+    padding: 60px 16px;
+  }
+  
+  .about-mobile .about-title {
+    font-size: 36px;
+    margin-bottom: 40px;
+  }
+  
+  .about-mobile .about-text {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-mobile {
+    padding: 50px 28px;
+  }
+  
+  .about-mobile .about-title {
+    font-size: 32px;
+    margin-bottom: 35px;
+  }
+  
+  .about-mobile .about-text {
+    font-size: 16px;
+  }
+  
+  .about-mobile .about-text-columns {
+    gap: 25px;
+  }
+}
+
+@media (min-width: 768px) {
+  .about-desktop {
+    padding: 100px 40px;
+  }
+  
+  .about-intro {
+    font-size: 20px;
+  }
+  
+  .about-title {
+    font-size: 64px;
+  }
+  
+  .about-text {
+    font-size: 20px;
+  }
+}
+

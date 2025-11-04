@@ -1,68 +1,6 @@
-/* Hero section with side-by-side images */
-.hero {
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-.hero-images {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin: 80px 0px 80px 0px;
-}
-
-.hero-image {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
-.hero-content {
-  text-align: center;
-  margin: 0 auto;
-  padding: 0 20px;
-  max-width: 1040px;
-}
-
-.hero-icon {
-  width: 24px;
-  height: 24px;
-  margin: 0 auto 24px;
-  opacity: 0.8;
-}
-
-.hero-title {
-  line-height: 1.1;
-  margin: 0 0 24px 0;
-  font-family: 'Big Caslon', Georgia, 'Times New Roman', serif;
-  font-weight: 500;
-}
-
-.hero-subtitle {
-  color: #000000;
-  margin: 0 0 32px 0;
-  font-family: 'Tenor Sans', system-ui, sans-serif;
-  line-height: 1.6;
-}
-
-.cta {
-  display: inline-block;
-  text-decoration: none;
-  background: #293B61;
-  color: white;
-  padding: 16px 32px;
-  font-family: 'Tenor Sans', system-ui, sans-serif;
-  font-size: 16px;
-  font-weight: 300;
-}
-
-/* Other sections */
+/* Common section styles */
 .section {
   padding: 60px 20px;
-}
-
-.section-alt {
-  background: #DEDCD0;
 }
 
 .container {
@@ -70,128 +8,17 @@
   margin: 0 auto;
 }
 
-/* Cards / Services */
-.cards {
-  list-style: none;
-  padding: 0;
-  margin: 24px 0 0 0;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-}
-
-.card {
-  border: 1px solid #000;
-  background: #fff;
-  padding: 24px;
-}
-
-.card h3 {
-  margin: 0 0 12px 0;
-  font-family: 'Big Caslon', Georgia, 'Times New Roman', serif;
-  font-weight: 500;
-}
-
-.card p {
-  margin: 0;
-  font-family: 'Tenor Sans', system-ui, sans-serif;
-}
-
-/* Why */
-.bullets {
-  padding-left: 18px;
-  font-family: 'Tenor Sans', system-ui, sans-serif;
-}
-
 /* Responsive */
 @media (max-width: 768px) {
-  .hero {
-    padding-top: 20px;
-  }
-  
-  .hero-images {
-    grid-template-columns: 1fr;
-    gap: 0;
-    margin-bottom: 40px;
-  }
-  
-  .hero-image {
-    height: 250px;
-    object-fit: cover;
-    object-position: center;
-  }
-  
-  .hero-image-mobile {
-    height: auto;
-    width: 100%;
-  }
-  
-  .hero-content {
-    padding: 0 16px;
-  }
-  
-  .hero-title {
-    font-size: 32px;
-    line-height: 1.2;
-    margin-bottom: 20px;
-  }
-  
-  .hero-subtitle {
-    font-size: 16px;
-    line-height: 1.5;
-    margin-bottom: 24px;
-  }
-  
-  .cta {
-    padding: 14px 28px;
-    font-size: 15px;
-  }
-  
   .section {
     padding: 60px 16px;
   }
 }
 
 @media (max-width: 480px) {
-  .hero-images {
-    margin: 30px 0px 30px 0px;
-  }
-  
-  .hero-image {
-    height: 200px;
-  }
-  
-  .hero-image-mobile {
-    height: auto;
-    width: 100%;
-  }
-  
-  .hero-title {
-    font-size: 28px;
-    margin-bottom: 16px;
-  }
-  
-  .hero-subtitle {
-    font-size: 15px;
-    margin-bottom: 20px;
-  }
-  
-  .cta {
-    padding: 12px 24px;
-    font-size: 14px;
-  }
-  
   .section {
     padding: 50px 12px;
   }
-}
-
-@media (min-width: 768px) {
-  .hero-title { font-size: 64px; }
-  .hero-subtitle { font-size: 20px; }
-  .cards { grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .hero-images { height: 600px; }
-  .hero-image { height: 600px; }
 }
 
 /* Offset for fixed navbar when linking */

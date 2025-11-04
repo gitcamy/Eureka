@@ -1,0 +1,39 @@
+.section-alt {
+  background: #DEDCD0;
+}
+
+/* Cards / Services */
+.cards {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0 0 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.card {
+  border: 1px solid #000;
+  background: #fff;
+  padding: 24px;
+}
+
+.card h3 {
+  margin: 0 0 12px 0;
+  font-family: 'Big Caslon', Georgia, 'Times New Roman', serif;
+  font-weight: 500;
+}
+
+.card p {
+  margin: 0;
+  font-family: 'Tenor Sans', system-ui, sans-serif;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+

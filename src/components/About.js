@@ -27,7 +27,7 @@ const About = ({ scrollToSection }) => {
             <p className="about-text">
             We are not real estate agents. We are independent consultants with deep 
   knowledge of the Spanish real estate market, working exclusively on your 
-  behalf. We're asmall, multi-disciplinary and bilingual team with a unique blend 
+  behalf. We're a small, multi-disciplinary and bilingual team with a unique blend 
   of backgrounds. 
             </p>
             <p className="about-text">

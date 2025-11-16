@@ -48,7 +48,7 @@ const Hero = ({ scrollToSection }) => {
         <Button
           variant="primary"
           style="filled"
-          onClick={(e) => scrollToSection(e, "contact")}
+          onClick={() => window.open("https://calendar.app.google/nwwowhJGMdAYrK7r5", "_blank")}
         >
           Schedule free consultation
         </Button>

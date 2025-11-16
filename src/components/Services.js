@@ -1,5 +1,6 @@
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { useRef, useState } from "react";
+import Button from "./Button.js";
 import "./Services.css";
 
 const services = [
@@ -90,6 +91,16 @@ const Services = () => {
                     >
                       <div className="service-panel-content">
                         <p>{service.description}</p>
+                        <div style={{display: "flex"}}>
+                        <Button
+                          variant="primary"
+                          style="filled"
+                          onClick={() => window.open("https://calendar.app.google/nwwowhJGMdAYrK7r5", "_blank")}
+                        >
+                          Learn more
+                        </Button>
+                        </div>
+                       
                       </div>
                     </motion.div>
                   )}

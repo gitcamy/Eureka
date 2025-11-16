@@ -1,0 +1,261 @@
+.footer {
+  background-color: #645116;
+  color: #ffffff;
+  padding: 4rem 2rem 1.5rem;
+  margin-top: 4rem;
+}
+
+.footer-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr 1.2fr;
+  gap: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Company Section */
+.footer-company {
+  grid-column: span 1;
+}
+
+.footer-section h3 {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.footer-tagline {
+  font-size: 0.9rem;
+  color: #4a9eff;
+  font-weight: 600;
+  margin-bottom: 0.8rem !important;
+}
+
+.footer-description {
+  color: #DEDCD0;
+  line-height: 1.6;
+  margin-bottom: 1.5rem !important;
+  font-size: 0.95rem;
+}
+
+.footer-contact-info {
+  margin-bottom: 1.5rem;
+}
+
+.footer-contact-info p {
+  color: #DEDCD0;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.footer-contact-info strong {
+  color: #ffffff;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.footer-contact-info a {
+  color: #DEDCD0;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-contact-info a:hover {
+  color: #4a9eff;
+}
+
+/* Social Media */
+.footer-social {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.footer-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: #ffffff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.footer-social a:hover {
+  background-color: #4a9eff;
+  transform: translateY(-3px);
+}
+
+.social-icon {
+  font-style: normal;
+}
+
+/* Navigation Sections */
+.footer-section h4 {
+  font-size: 1.1rem;
+  margin-bottom: 1.2rem;
+  color: #ffffff;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.95rem;
+}
+
+.footer-section p {
+  color: #DEDCD0;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.7rem;
+}
+
+.footer-section ul li a {
+  color: #DEDCD0;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  display: inline-block;
+}
+
+.footer-section ul li a:hover {
+  color: #ffffff;
+  padding-left: 5px;
+}
+
+/* Service Areas/Locations */
+.footer-locations {
+  grid-column: span 1;
+}
+
+.footer-locations-intro {
+  color: #DEDCD0;
+  font-size: 0.95rem;
+  margin-bottom: 0.8rem !important;
+  font-weight: 500;
+}
+
+.footer-locations-list {
+  color: #DEDCD0;
+  line-height: 1.8;
+  font-size: 0.9rem;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-top: 2rem;
+  text-align: center;
+}
+
+.footer-legal-links {
+  margin-bottom: 1rem;
+}
+
+.footer-legal-links a {
+  color: #DEDCD0;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.footer-legal-links a:hover {
+  color: #4a9eff;
+}
+
+.footer-legal-links .separator {
+  margin: 0 1rem;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.footer-copyright {
+  color: #888888;
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+/* Tablet Responsive */
+@media (max-width: 1200px) {
+  .footer-content {
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  .footer-company {
+    grid-column: span 1;
+  }
+
+  .footer-locations {
+    grid-column: span 3;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .footer {
+    padding: 3rem 1.5rem 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-company,
+  .footer-locations {
+    grid-column: span 1;
+  }
+
+  .footer-section h3 {
+    font-size: 1.4rem;
+  }
+
+  .footer-section h4 {
+    font-size: 0.9rem;
+  }
+
+  .footer-legal-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .footer-legal-links .separator {
+    display: none;
+  }
+
+  .footer-social {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 2rem 1rem 1rem;
+  }
+
+  .footer-content {
+    gap: 1.5rem;
+  }
+}
+

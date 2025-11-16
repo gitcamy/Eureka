@@ -7,6 +7,7 @@ import Team from "../components/Team.js";
 import Services from "../components/Services.js";
 import Why from "../components/Why.js";
 import Contact from "../components/Contact.js";
+import Footer from "../components/Footer.js";
 
 const Home = () => {
   const contactRef = useRef(null);
@@ -32,6 +33,7 @@ const Home = () => {
           <Contact />
         </div>
       </section>
+      <Footer />
     </>
   );
 };

@@ -25,16 +25,13 @@ const About = ({ scrollToSection }) => {
           <h2 className="about-title">About us</h2>
           <div className="about-text-columns">
             <p className="about-text">
-            We are not real estate agents. We are independent consultants with deep 
-  knowledge of the Spanish real estate market, working exclusively on your 
-  behalf. We're a small, multi-disciplinary and bilingual team with a unique blend 
-  of backgrounds. 
+            We're not real estate agents—we're your strategic advisors in the Spanish property market.
+            <br />
+            <br />
+            Eurkera Investments is a boutique consulting firm specializing in helping American citizens navigate the complexities of buying, selling, and managing property in Spain. While traditional agents work for sellers, we work exclusively for you. 
             </p>
             <p className="about-text">
-            We help you define a strategy, find the right property, 
-  and complete the transaction securely — even from abroad. Together, we offer a real estate experience that's both creative and 
-  personalized, with a special understanding of the needs of international 
-  buyers in Spain.
+            Our independent, buyer-first approach means we search the entire market, provide unbiased financial analysis, and negotiate with only your interests in mind. With deep expertise in Spanish real estate law, market dynamics, and cross-border transactions, we bridge the gap between American expectations and Spanish realities—handling everything from investment strategy to closing, even if you never leave the U.S.
             </p>
           </div>
         </div>

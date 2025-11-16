@@ -1,0 +1,173 @@
+/* Base Button Styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 32px;
+  font-family: 'Tenor Sans', system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  border-radius: 0;
+  line-height: 1.5;
+}
+
+.btn-text {
+  display: inline-block;
+}
+
+.btn-arrow {
+  display: inline-flex;
+  align-items: center;
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+/* Primary Filled Button */
+.btn-primary.btn-filled {
+  background: #293B61;
+  color: #FFFFFF;
+  border: 2px solid #293B61;
+}
+
+.btn-primary.btn-filled:hover {
+  background: #1f2d47;
+  border-color: #1f2d47;
+  box-shadow: 0 4px 12px rgba(41, 59, 97, 0.3);
+}
+
+.btn-primary.btn-filled:active {
+  background: #162035;
+  border-color: #162035;
+  transform: translateY(1px);
+  box-shadow: 0 2px 6px rgba(41, 59, 97, 0.4);
+}
+
+/* Primary Outlined Button */
+.btn-primary.btn-outlined {
+  background: transparent;
+  color: #293B61;
+  border: 2px solid #293B61;
+}
+
+.btn-primary.btn-outlined:hover {
+  background: rgba(41, 59, 97, 0.05);
+  box-shadow: 0 0 12px rgba(41, 59, 97, 0.3);
+}
+
+.btn-primary.btn-outlined:active {
+  background: rgba(41, 59, 97, 0.1);
+  transform: translateY(1px);
+}
+
+/* Secondary Filled Button */
+.btn-secondary.btn-filled {
+  background: #645116;
+  color: #FFFFFF;
+  border: 2px solid #645116;
+}
+
+.btn-secondary.btn-filled:hover {
+  background: #4d3e11;
+  border-color: #4d3e11;
+  box-shadow: 0 4px 12px rgba(100, 81, 22, 0.3);
+}
+
+.btn-secondary.btn-filled:active {
+  background: #3a2e0d;
+  border-color: #3a2e0d;
+  transform: translateY(1px);
+  box-shadow: 0 2px 6px rgba(100, 81, 22, 0.4);
+}
+
+/* Secondary Outlined Button */
+.btn-secondary.btn-outlined {
+  background: transparent;
+  color: #645116;
+  border: 2px solid #645116;
+}
+
+.btn-secondary.btn-outlined:hover {
+  background: rgba(100, 81, 22, 0.05);
+  box-shadow: 0 0 12px rgba(100, 81, 22, 0.3);
+}
+
+.btn-secondary.btn-outlined:active {
+  background: rgba(100, 81, 22, 0.1);
+  transform: translateY(1px);
+}
+
+/* Arrow Animations on Hover */
+.btn:hover .btn-arrow-right {
+  transform: translateX(4px);
+}
+
+.btn:hover .btn-arrow-left {
+  transform: translateX(-4px);
+}
+
+.btn:hover .btn-arrow-up {
+  transform: translateY(-4px);
+}
+
+.btn:hover .btn-arrow-down {
+  transform: translateY(4px);
+}
+
+/* Arrow Animations on Active */
+.btn:active .btn-arrow-right {
+  transform: translateX(6px);
+}
+
+.btn:active .btn-arrow-left {
+  transform: translateX(-6px);
+}
+
+.btn:active .btn-arrow-up {
+  transform: translateY(-6px);
+}
+
+.btn:active .btn-arrow-down {
+  transform: translateY(6px);
+}
+
+/* Disabled State */
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Focus State for Accessibility */
+.btn:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .btn {
+    padding: 12px 24px;
+    font-size: 15px;
+  }
+  
+  .btn-arrow {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  
+  .btn-arrow {
+    font-size: 15px;
+  }
+}
+

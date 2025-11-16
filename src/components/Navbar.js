@@ -49,7 +49,7 @@ const Navbar = ({ scrollToContact }) => {
         <Link to="/">
           <h2>Eureka Investments</h2>
         </Link>
-        <span>Find your golden property in Northern Spain</span>
+        <span>Find your golden property in Spain</span>
       </div>
       <div className="hamburger" onClick={toggleMenu}>
         <div></div>

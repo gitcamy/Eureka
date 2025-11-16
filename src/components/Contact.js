@@ -8,6 +8,7 @@ import {
   Alert,
   Snackbar,
 } from "@mui/material";
+import Button from "./Button.js";
 import "./Contact.css";
 import { init, send } from "emailjs-com";
 
@@ -163,10 +164,14 @@ const Contact = () => {
                 variant="outlined"
               />
 
-              <button type="submit" className="secondary">
-                <p style={{ marginRight: "1rem" }}>Get Connected</p>
-                <i className="fa fa-paper-plane"></i>
-              </button>
+              <Button
+                type="submit"
+                variant="secondary"
+                style="filled"
+                arrow="right"
+              >
+                Get Connected
+              </Button>
             </Stack>
           </motion.form>
         </Box>

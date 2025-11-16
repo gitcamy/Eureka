@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useContext } from "react";
 import { MobileContext } from "../context/MobileContext.js";
+import Button from "./Button.js";
 import "./Hero.css";
 
 const Hero = ({ scrollToSection }) => {
@@ -44,13 +45,13 @@ const Hero = ({ scrollToSection }) => {
           citizens find, acquire, and manage property in Spain with clarity,
           confidence, and strategic insight.
         </p>
-        <a
-          href="#contact"
-          className="cta"
+        <Button
+          variant="primary"
+          style="filled"
           onClick={(e) => scrollToSection(e, "contact")}
         >
-          Schedule a consultation
-        </a>
+          Schedule free consultation
+        </Button>
       </motion.div>
     </section>
   );

@@ -1,12 +1,9 @@
 .team-section {
-  padding: 80px;
-  margin-bottom: 80px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 100px;
 }
 
-.team-desktop {
-  margin-left: 100px;
-  margin-right: 100px;
-}
 
 .team-container {
   max-width: 1400px;
@@ -39,7 +36,6 @@
 
 .team-content {
   flex: 1;
-  max-width: 500px;
   margin-left: 0;
   padding-top: 0;
 }
@@ -88,27 +84,6 @@
   width: 100%;
 }
 
-.team-arrow {
-  background: none;
-  border: none;
-  font-size: 32px;
-  color: #293B61;
-  cursor: pointer;
-  padding: 0;
-  margin: 0;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  font-family: inherit;
-}
-
-.team-arrow:hover {
-  transform: translateX(4px);
-  opacity: 0.7;
-}
-
-.team-arrow:active {
-  transform: translateX(8px);
-}
-
 /* Responsive adjustments for desktop */
 @media (min-width: 1200px) {
   .team-name {
@@ -127,7 +102,6 @@
 /* Mobile Styles */
 @media (max-width: 768px) {
     .team-mobile {
-        padding: 60px 28px;
         margin-bottom: 80px;
         margin-left: 0;
         margin-right: 0;
@@ -208,35 +182,6 @@
       
       .team-toggle-button {
         width: 50%;
-        padding: 12px 0;
-        background: transparent;
-        border: 1px solid #293B61;
-        font-family: 'Tenor Sans', system-ui, sans-serif;
-        font-size: 16px;
-        font-weight: 400;
-        color: #293B61;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        align-content: right;
-        transition: box-shadow 0.3s ease, color 0.3s ease;
-      }
-      
-      .team-toggle-button:hover {
-        color: #293B61;
-        box-shadow: 0 0 10px 0 rgba(41, 59, 97, 0.5);
-      }
-      
-      .team-toggle-button:active {
-        opacity: 0.8;
-      }
-      
-      .team-toggle-arrow {
-        font-size: 18px;
-        display: inline-block;
-        transition: transform 0.3s ease;
       }
 
 }

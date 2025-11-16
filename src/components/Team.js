@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MobileContext } from "../context/MobileContext.js";
+import Button from "./Button.js";
 import ibaiImage from "../assets/ibai2.png";
 import michaelImage from "../assets/michael.png";
 import "./Team.css";
@@ -15,17 +16,15 @@ const Team = () => {
       name: "Michael Hochberg",
       title: "CO-CEO, U.S. OPERATIONS",
       bio: [
-        "Michael grew up in New Jersey and lived in México, Spain and France. He spent his first years of his career as a strategy and management consultant, before moving into real estate and energy assets development sector.",
-        "He currently lives between New York and Miami, but travels often to Spain, and leverages his experience to help his clients achieve the best possible outcome for their property purchases."
+        "Raised in New Jersey and seasoned across México, Spain, and France, Michael brings a unique blend of strategic consulting and real estate development experience. Before co-founding Eurkera, he spent years in management consulting and energy asset development. Now splitting his time between New York, Miami, and Spain, Michael understands both the American investor mindset and the Spanish market intricacies—making him the ideal bridge for clients seeking clarity and confidence in their Spanish property ventures.",
       ],
       image: michaelImage
     },
     ibai: {
-      name: "Ibai Pico",
+      name: "Ibai P. Prudencio",
       title: "CO-CEO, SPAIN OPERATIONS",
       bio: [
-        "Ibai is economist and real estate expert.",   
-        "After working for a strategy and management company in around the globe, he came back to Spain. He has since then advised and helped more than 1,000 clients navigate the Spanish Real Estate market. He specializes in financial analysis, legal and tax regulation.",
+        "An economist and real estate specialist, Ibai has guided over 1,000 clients through Spain's complex property landscape. After years working internationally as a strategy consultant, he returned to Spain to apply his expertise where it matters most—helping foreign buyers make informed, profitable decisions. Ibai specializes in financial modeling, legal compliance, and tax optimization, ensuring every transaction is structured for success and fully compliant with Spanish regulations.",
       ],
       image: ibaiImage
     }
@@ -85,22 +84,17 @@ const Team = () => {
                     </motion.div>
                   )}
                 </AnimatePresence>
-<div className="team-arrow-container">
-                <button
-                  className="team-toggle-button"
-                  onClick={() => toggleCard(key)}
-                  aria-label={isExpanded ? "See less" : "Read more"}
-                >
-                  {isExpanded ? (
-                    <>
-                      See less <span className="team-toggle-arrow">↑</span>
-                    </>
-                  ) : (
-                    <>
-                      Read more <span className="team-toggle-arrow">↓</span>
-                    </>
-                  )}
-                </button>
+                <div className="team-arrow-container">
+                  <Button
+                    variant="primary"
+                    style="outlined"
+                    arrow={isExpanded ? "up" : "down"}
+                    onClick={() => toggleCard(key)}
+                    aria-label={isExpanded ? "See less" : "Read more"}
+                    className="team-toggle-button"
+                  >
+                    {isExpanded ? "See less" : "Read more"}
+                  </Button>
                 </div>
               </div>
             );
@@ -177,7 +171,16 @@ const Team = () => {
                 ))}
               </div>
               <div className="team-arrow-container">
-                <button className="team-arrow" onClick={handleSwap} aria-label="Switch team member">→</button>
+                <Button
+                  variant="primary"
+                  style="filled"
+                  arrow="right"
+                  onClick={handleSwap}
+                  aria-label="Switch team member"
+                  className="team-swap-button"
+                >
+                  Next
+                </Button>
               </div>
             </motion.div>
           </AnimatePresence>

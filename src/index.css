@@ -7,7 +7,7 @@ body { margin: 0; font-family: 'Tenor Sans', system-ui, -apple-system, Segoe UI,
 /* Local Big Caslon for headings */
 @font-face {
   font-family: 'Big Caslon';
-  src: url('../src/fonts/BigCaslonFB-Italic.woff2') format('woff2'), url('../src/fonts/BigCaslonFB-Italic.woff') format('woff');
+  src: url('./fonts/BigCaslonFB-Italic.woff2') format('woff2'), url('./fonts/BigCaslonFB-Italic.woff') format('woff');
   font-style: italic;
   font-weight: 500;
   font-display: swap;
@@ -15,5 +15,8 @@ body { margin: 0; font-family: 'Tenor Sans', system-ui, -apple-system, Segoe UI,
 
 h1,h2,h3,h4,h5,h6 { font-family: 'Big Caslon', Georgia, 'Times New Roman', serif; font-weight: 500; letter-spacing: -0.01em; }
 p { font-family: 'Tenor Sans', system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, sans-serif; line-height: 1.6; }
+
+/* Prevent mobile browsers from applying default link colors to buttons */
+button, button * { color: inherit; -webkit-tap-highlight-color: transparent; }
 
 /* Remove legacy button styles - handled in component CSS */

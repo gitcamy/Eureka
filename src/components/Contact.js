@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import {
   TextField,
   Stack,
@@ -9,11 +9,13 @@ import {
 import Button from "./Button.js";
 import "./Contact.css";
 import { init, send } from "emailjs-com";
+import ReCAPTCHA from "react-google-recaptcha";
 
 // Initialize EmailJS with your public key
 init(process.env.REACT_APP_EMAILJS_USER_ID);
 
 const Contact = () => {
+  const recaptchaRef = useRef(null);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -51,32 +53,61 @@ const Contact = () => {
     
     if (Object.keys(newErrors).length === 0) {
       setIsSubmitting(true);
+      
       try {
+        // Get reCAPTCHA token
+        const token = recaptchaRef.current?.getValue();
+        
+        if (!token) {
+          console.warn('⚠️ Please complete the reCAPTCHA');
+          setErrors({ ...errors, recaptcha: "Please complete the reCAPTCHA" });
+          setIsSubmitting(false);
+          return;
+        }
+
+        console.log('✅ reCAPTCHA token obtained');
+
+        // Prepare email data
+        const emailData = {
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          name: `${formData.firstName} ${formData.lastName}`,
+          email: formData.email,
+          message: formData.message,
+          'g-recaptcha-response': token,
+        };
+
+        console.log('📧 Attempting to send email with reCAPTCHA...');
+        
         const response = await send(
           process.env.REACT_APP_EMAILJS_SERVICE_ID,
           process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
-          {
-            firstName: formData.firstName,
-            lastName: formData.lastName,
-            name: `${formData.firstName} ${formData.lastName}`,
-            email: formData.email,
-            message: formData.message,
-            to_email: "ipico002@gmail.com", // Recipient email
-          }
+          emailData
         );
 
+        console.log('📬 EmailJS Response:', response);
+
         if (response.status === 200) {
-          console.log("Form submitted successfully:", formData);
+          console.log("✅ Form submitted successfully!");
           setShowSuccess(true);
           setFormData({ firstName: "", lastName: "", email: "", message: "" });
           setErrors({});
+          // Reset reCAPTCHA
+          recaptchaRef.current?.reset();
         } else {
-          console.error("Error sending email:", response);
+          console.error("❌ Error sending email - Status:", response.status, "Response:", response);
           setShowError(true);
+          // Reset reCAPTCHA on error
+          recaptchaRef.current?.reset();
         }
       } catch (error) {
-        console.error("Error sending email:", error);
+        console.error("❌ Error sending email - Full error details:");
+        console.error("Error message:", error.message);
+        console.error("Error text:", error.text);
+        console.error("Error object:", error);
         setShowError(true);
+        // Reset reCAPTCHA on error
+        recaptchaRef.current?.reset();
       } finally {
         setIsSubmitting(false);
       }
@@ -101,7 +132,12 @@ const Contact = () => {
   };
 
   const handleCalendarClick = () => {
-    window.open("https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0eCYie1EwLsCN7zk5p80J-Q9Vh8Obuh8rYQH9Ti528Mc-A6YypUETbpftI3q0psjdIGfXfKAyY", "_blank");
+    const calendarLink = process.env.REACT_APP_GOOGLE_CALENDAR_LINK;
+    if (calendarLink) {
+      window.open(calendarLink, "_blank");
+    } else {
+      console.error("Google Calendar link not configured");
+    }
   };
 
   return (
@@ -245,6 +281,25 @@ const Contact = () => {
                     },
                   }}
                 />
+
+                {/* reCAPTCHA v2 */}
+                {process.env.REACT_APP_RECAPTCHA_SITE_KEY && (
+                  <ReCAPTCHA
+                    ref={recaptchaRef}
+                    sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
+                    onChange={() => {
+                      // Clear reCAPTCHA error when user completes it
+                      if (errors.recaptcha) {
+                        setErrors((prev) => ({ ...prev, recaptcha: "" }));
+                      }
+                    }}
+                  />
+                )}
+                {errors.recaptcha && (
+                  <p style={{ color: '#d32f2f', fontSize: '0.75rem', margin: '0' }}>
+                    {errors.recaptcha}
+                  </p>
+                )}
 
                 <Button
                   type="submit"

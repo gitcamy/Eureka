@@ -42,9 +42,8 @@ const Footer = () => {
               <i className="social-icon">in</i>
             </a> */}
             <a href="https://www.instagram.com/eureka_invest/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-
- 
-            <i class="fa-brands fa-instagram"></i>            </a>
+            <i className="fa-brands fa-instagram"></i>
+            </a>
             {/* <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
               <i className="social-icon">fb</i>
             </a> */}

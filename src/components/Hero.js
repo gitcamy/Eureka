@@ -11,23 +11,74 @@ const Hero = ({ scrollToSection }) => {
     <section id="hero" className="section hero">
       <div className="hero-images">
         {isMobile ? (
-          <img
-            src={require("../assets/leftHome.jpg")}
-            alt="Spanish architecture with pool"
-            className="hero-image-mobile"
-          />
-        ) : (
-          <>
+          <picture>
+            <source 
+              type="image/webp"
+              srcSet={`
+                ${require("../assets/leftHome-480.webp")} 480w,
+                ${require("../assets/leftHome-768.webp")} 768w
+              `}
+              sizes="100vw"
+            />
             <img
               src={require("../assets/leftHome.jpg")}
+              srcSet={`
+                ${require("../assets/leftHome-480.jpg")} 480w,
+                ${require("../assets/leftHome-768.jpg")} 768w
+              `}
+              sizes="100vw"
               alt="Spanish architecture with pool"
-              className="hero-image"
+              className="hero-image-mobile"
+              loading="eager"
+              decoding="async"
             />
-            <img
-              src={require("../assets/rightHome.jpg")}
-              alt="Classical Spanish apartment"
-              className="hero-image"
-            />
+          </picture>
+        ) : (
+          <>
+            <picture>
+              <source 
+                type="image/webp"
+                srcSet={`
+                  ${require("../assets/leftHome-768.webp")} 768w,
+                  ${require("../assets/leftHome-1200.webp")} 1200w
+                `}
+                sizes="(max-width: 1200px) 50vw, 600px"
+              />
+              <img
+                src={require("../assets/leftHome.jpg")}
+                srcSet={`
+                  ${require("../assets/leftHome-768.jpg")} 768w,
+                  ${require("../assets/leftHome-1200.jpg")} 1200w
+                `}
+                sizes="(max-width: 1200px) 50vw, 600px"
+                alt="Spanish architecture with pool"
+                className="hero-image"
+                loading="eager"
+                decoding="async"
+              />
+            </picture>
+            <picture>
+              <source 
+                type="image/webp"
+                srcSet={`
+                  ${require("../assets/rightHome-768.webp")} 768w,
+                  ${require("../assets/rightHome-1200.webp")} 1200w
+                `}
+                sizes="(max-width: 1200px) 50vw, 600px"
+              />
+              <img
+                src={require("../assets/rightHome.jpg")}
+                srcSet={`
+                  ${require("../assets/rightHome-768.jpg")} 768w,
+                  ${require("../assets/rightHome-1200.jpg")} 1200w
+                `}
+                sizes="(max-width: 1200px) 50vw, 600px"
+                alt="Classical Spanish apartment"
+                className="hero-image"
+                loading="eager"
+                decoding="async"
+              />
+            </picture>
           </>
         )}
       </div>

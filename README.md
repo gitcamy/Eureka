@@ -1,70 +1,173 @@
-# Getting Started with Create React App
+# Eureka Investments
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Your Gateway to Spanish Real Estate**
 
-## Available Scripts
+Eureka Investments is a professional website designed to help Americans navigate the Spanish real estate market, particularly in Northern Spain. We provide comprehensive services from property search to legal assistance.
 
-In the project directory, you can run:
+## 🌟 Features
 
-### `npm start`
+- **Modern, Responsive Design**: Beautiful UI that works seamlessly on desktop, tablet, and mobile devices
+- **Contact Form Integration**: Direct communication through EmailJS integration
+- **Google Calendar Booking**: Easy appointment scheduling for consultations
+- **Smooth Animations**: Enhanced user experience with Framer Motion
+- **SEO Optimized**: Proper meta tags and semantic HTML for better search engine visibility
+- **Secure**: Implemented security headers and best practices
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🚀 Getting Started
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Prerequisites
 
-### `npm test`
+- Node.js (v14 or higher)
+- npm or yarn
+- EmailJS account (for contact form functionality)
+- Google Calendar appointment scheduling setup
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Installation
 
-### `npm run build`
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/eureka.git
+   cd eureka
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. **Set up environment variables**
+   
+   Create a `.env` file in the root directory and add your credentials:
+   ```bash
+   # EmailJS Configuration
+   REACT_APP_EMAILJS_USER_ID=your_emailjs_public_key_here
+   REACT_APP_EMAILJS_SERVICE_ID=your_emailjs_service_id_here
+   REACT_APP_EMAILJS_TEMPLATE_ID=your_emailjs_template_id_here
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   # Google Calendar Scheduling Link
+   REACT_APP_GOOGLE_CALENDAR_LINK=your_google_calendar_scheduling_link_here
 
-### `npm run eject`
+   # Google reCAPTCHA v3 (optional - recommended for production)
+   REACT_APP_RECAPTCHA_SITE_KEY=your_recaptcha_site_key_here
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   See `.env.example` for a template with all required variables.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. **Start the development server**
+   ```bash
+   npm start
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 📦 Building for Production
 
-## Learn More
+```bash
+npm run build
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This creates an optimized production build in the `build` folder.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🌐 Deployment
 
-### Code Splitting
+This project is configured for deployment on [Vercel](https://vercel.com/).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Deploy to Vercel
 
-### Analyzing the Bundle Size
+1. Push your code to GitHub
+2. Import your repository in Vercel
+3. Add environment variables in Vercel's project settings:
+   - `REACT_APP_EMAILJS_USER_ID`
+   - `REACT_APP_EMAILJS_SERVICE_ID`
+   - `REACT_APP_EMAILJS_TEMPLATE_ID`
+   - `REACT_APP_GOOGLE_CALENDAR_LINK`
+   - `REACT_APP_RECAPTCHA_SITE_KEY` (if using reCAPTCHA)
+4. Deploy!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Important Deployment Notes
 
-### Making a Progressive Web App
+- The `vercel.json` file includes security headers and proper routing configuration
+- Make sure all environment variables are set in Vercel's dashboard
+- Never commit your `.env` file to version control
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 🔧 Configuration
 
-### Advanced Configuration
+### EmailJS Setup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+See `EMAILJS_SETUP.md` for detailed instructions on setting up EmailJS for the contact form.
 
-### Deployment
+### Security Headers
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+The `vercel.json` file includes security headers:
+- `X-Content-Type-Options`: Prevents MIME type sniffing
+- `X-Frame-Options`: Prevents clickjacking
+- `X-XSS-Protection`: Enables XSS filter
+- `Referrer-Policy`: Controls referrer information
+- `Permissions-Policy`: Restricts browser features
 
-### `npm run build` fails to minify
+## 📁 Project Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+Eureka/
+├── public/              # Static files
+│   ├── Eureka.png      # Logo and favicon
+│   └── index.html      # HTML template
+├── src/
+│   ├── assets/         # Images and media
+│   ├── components/     # React components
+│   │   ├── About.js
+│   │   ├── Contact.js
+│   │   ├── Footer.js
+│   │   ├── Hero.js
+│   │   ├── Navbar.js
+│   │   ├── Services.js
+│   │   ├── Team.js
+│   │   └── Why.js
+│   ├── context/        # React context providers
+│   ├── fonts/          # Custom fonts
+│   ├── pages/          # Page components
+│   │   └── Home.js
+│   ├── App.js          # Main app component
+│   └── index.js        # Entry point
+├── .env                # Environment variables (not in repo)
+├── .env.example        # Example environment variables
+├── .gitignore          # Git ignore rules
+├── package.json        # Dependencies
+├── vercel.json         # Vercel configuration
+└── README.md           # This file
+```
+
+## 🛠 Technologies Used
+
+- **React** - Frontend library
+- **React Router** - Navigation
+- **Material-UI** - Component library
+- **Framer Motion** - Animations
+- **EmailJS** - Email service for contact form
+- **Bootstrap** - CSS framework
+- **Lucide React** - Icon library
+
+## 📝 Available Scripts
+
+- `npm start` - Runs the app in development mode
+- `npm run build` - Builds the app for production
+- `npm test` - Runs the test suite
+
+## 🔒 Security Best Practices
+
+- All sensitive credentials are stored in environment variables
+- Security headers are configured in `vercel.json`
+- The `.env` file is in `.gitignore` to prevent accidental commits
+- Consider adding reCAPTCHA to the contact form for production use
+
+## 📞 Support
+
+For questions or issues with this project, please contact the development team.
+
+## 📄 License
+
+This project is proprietary and confidential. All rights reserved by Eureka Investments.
+
+---
+
+Built with ❤️ for Eureka Investments

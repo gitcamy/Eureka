@@ -60,6 +60,8 @@ const Team = () => {
                     src={member.image}
                     alt={member.name}
                     className="team-image-mobile"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
 
@@ -126,6 +128,8 @@ const Team = () => {
               src={ibaiImage}
               alt={teamMembers.ibai.name}
               className="team-image"
+              loading="lazy"
+              decoding="async"
             />
           </motion.div>
 
@@ -146,6 +150,8 @@ const Team = () => {
               src={michaelImage}
               alt={teamMembers.michael.name}
               className="team-image"
+              loading="lazy"
+              decoding="async"
             />
           </motion.div>
         </div>

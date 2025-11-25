@@ -3,6 +3,7 @@ import { useRef, useState, useContext } from "react";
 import { MobileContext } from "../context/MobileContext";
 import "./Why.css";
 import greenHouse from "../assets/greenHouse.jpg";
+import greenHouseWebP from "../assets/greenHouse.webp";
 
 const Why = () => {
   const whyRef = useRef(null);
@@ -55,7 +56,16 @@ const Why = () => {
           // Mobile View - Accordion
           <>
             <div className="why-hero-mobile">
-              <img src={greenHouse} alt="Spanish building" className="why-hero-image" />
+              <picture>
+                <source srcSet={greenHouseWebP} type="image/webp" />
+                <img 
+                  src={greenHouse} 
+                  alt="Spanish building" 
+                  className="why-hero-image"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
               <h2 className="why-title-overlay">Why Eureka?</h2>
             </div>
             
@@ -117,7 +127,16 @@ const Why = () => {
             <div className="why-content-container">
               <div className="why-left">
                 <div className="why-image-container">
-                  <img src={greenHouse} alt="Spanish building" className="why-image" />
+                  <picture>
+                    <source srcSet={greenHouseWebP} type="image/webp" />
+                    <img 
+                      src={greenHouse} 
+                      alt="Spanish building" 
+                      className="why-image"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </picture>
                 </div>
               </div>
               <div className="why-right">

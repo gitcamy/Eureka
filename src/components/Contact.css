@@ -1,13 +1,117 @@
-/* Minimal contact layout */
+/* Contact Section - Two Column Layout */
 
 .contact-container {
-  margin: 0 auto;
-  padding: 16px;
-  max-width: 720px;
+  width: 100%;
 }
 
-.contact-header { margin-bottom: 12px; }
-.contact-title { margin-bottom: 4px; }
-.contact-subtitle { color: #444; }
+.contact-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
 
-.contact-box { border: 1px solid #000; }
+/* Left Section - Consultation Booking */
+.contact-left {
+  padding-right: 40px;
+}
+
+.contact-main-title {
+  font-family: 'Big Caslon', serif;
+  font-style: italic;
+  font-size: 3.5rem;
+  line-height: 1.2;
+  margin-bottom: 32px;
+  color: #1a1a1a;
+}
+
+.contact-description {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: #1a1a1a;
+  margin-bottom: 48px;
+  max-width: 500px;
+}
+
+/* Right Section - Contact Form */
+.contact-right {
+  background-color: transparent;
+}
+
+.contact-form-title {
+  font-family: 'Big Caslon', serif;
+  font-style: italic;
+  font-size: 3.5rem;
+  line-height: 1.2;
+  margin-bottom: 32px;
+  color: #1a1a1a;
+}
+
+.contact-form {
+  width: 100%;
+}
+
+.contact-name-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .contact-container {
+    padding: 60px 40px;
+  }
+  
+  .contact-content {
+    gap: 60px;
+  }
+  
+  .contact-main-title,
+  .contact-form-title {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 968px) {
+  .contact-container {
+    padding: 50px 30px;
+  }
+  
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  
+  .contact-left {
+    padding-right: 0;
+  }
+  
+  .contact-main-title,
+  .contact-form-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-container {
+    padding: 40px 20px;
+  }
+  
+  .contact-main-title,
+  .contact-form-title {
+    font-size: 2rem;
+  }
+  
+  .contact-description {
+    font-size: 1rem;
+    margin-bottom: 32px;
+  }
+  
+  .contact-name-row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}

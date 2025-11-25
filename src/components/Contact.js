@@ -3,8 +3,6 @@ import { useState } from "react";
 import {
   TextField,
   Stack,
-  Typography,
-  Box,
   Alert,
   Snackbar,
 } from "@mui/material";
@@ -17,18 +15,24 @@ init(process.env.REACT_APP_EMAILJS_USER_ID);
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: "",
+    firstName: "",
+    lastName: "",
     email: "",
     message: "",
   });
 
   const [errors, setErrors] = useState({});
   const [showSuccess, setShowSuccess] = useState(false);
+  const [showError, setShowError] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const validateForm = () => {
     const newErrors = {};
-    if (!formData.name.trim()) {
-      newErrors.name = "Name is required";
+    if (!formData.firstName.trim()) {
+      newErrors.firstName = "First name is required";
+    }
+    if (!formData.lastName.trim()) {
+      newErrors.lastName = "Last name is required";
     }
     if (!formData.email.trim()) {
       newErrors.email = "Email is required";
@@ -44,30 +48,37 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newErrors = validateForm();
+    
     if (Object.keys(newErrors).length === 0) {
+      setIsSubmitting(true);
       try {
         const response = await send(
           process.env.REACT_APP_EMAILJS_SERVICE_ID,
           process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
           {
-            name: formData.name,
+            firstName: formData.firstName,
+            lastName: formData.lastName,
+            name: `${formData.firstName} ${formData.lastName}`,
             email: formData.email,
             message: formData.message,
+            to_email: "ipico002@gmail.com", // Recipient email
           }
         );
 
         if (response.status === 200) {
-          console.log("Form submitted:", formData);
+          console.log("Form submitted successfully:", formData);
           setShowSuccess(true);
-          setFormData({ name: "", email: "", message: "" });
+          setFormData({ firstName: "", lastName: "", email: "", message: "" });
+          setErrors({});
         } else {
           console.error("Error sending email:", response);
-          alert(
-            "There was an error sending your message. Please try again later."
-          );
+          setShowError(true);
         }
       } catch (error) {
-        console.error("Error:", error);
+        console.error("Error sending email:", error);
+        setShowError(true);
+      } finally {
+        setIsSubmitting(false);
       }
     } else {
       setErrors(newErrors);
@@ -89,94 +100,167 @@ const Contact = () => {
     }
   };
 
+  const handleCalendarClick = () => {
+    window.open("https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0eCYie1EwLsCN7zk5p80J-Q9Vh8Obuh8rYQH9Ti528Mc-A6YypUETbpftI3q0psjdIGfXfKAyY", "_blank");
+  };
+
   return (
     <>
       <div className="contact-container">
-        <h1 className="contact-header no-wrap">Contact Us</h1>
-
-        <Box
-          sx={{
-            backgroundColor: "white",
-            border: "1px solid #000",
-            borderRadius: 2,
-            boxShadow: 1,
-            p: { xs: 2, sm: 3, md: 4 },
-          }}
-          className="contact-box"
-        >
-          <motion.div
+        <div className="contact-content">
+          {/* Left Section - Schedule Consultation */}
+          <motion.div 
+            className="contact-left"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2 }}
           >
-            <Typography variant="h4" sx={{ mb: 1 }} className="contact-title">
-              Get in Touch
-            </Typography>
-            <Typography
-              variant="body1"
-              sx={{ mb: 4, color: "text.secondary" }}
-              className="contact-subtitle"
+            <h1 className="contact-main-title">Schedule a Free Consultation</h1>
+            <p className="contact-description">
+              Ready to explore Spanish real estate with confidence? Whether you're 
+              buying your first property in Spain, selling remotely, or looking to 
+              maximize an existing investment, we're here to guide you through 
+              every step.
+            </p>
+            <Button
+              onClick={handleCalendarClick}
+              variant="primary"
+              style="filled"
             >
-              We'd love to hear from you!
-            </Typography>
+              Book Free Consultation
+            </Button>
           </motion.div>
 
-          <motion.form
-            onSubmit={handleSubmit}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4 }}
+          {/* Right Section - Contact Form */}
+          <motion.div 
+            className="contact-right"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.3 }}
           >
-            <Stack spacing={3}>
-              <TextField
-                fullWidth
-                label="Name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                error={!!errors.name}
-                helperText={errors.name}
-                variant="outlined"
-              />
+            <h2 className="contact-form-title">Contact Us</h2>
+            
+            <form onSubmit={handleSubmit} className="contact-form">
+              <Stack spacing={2.5}>
+                <div className="contact-name-row">
+                  <TextField
+                    fullWidth
+                    label="First Name*"
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleChange}
+                    error={!!errors.firstName}
+                    helperText={errors.firstName}
+                    variant="outlined"
+                    sx={{
+                      backgroundColor: 'white',
+                      '& .MuiOutlinedInput-root': {
+                        '& fieldset': {
+                          borderColor: 'transparent',
+                        },
+                        '&:hover fieldset': {
+                          borderColor: 'rgba(0, 0, 0, 0.23)',
+                        },
+                        '&.Mui-focused fieldset': {
+                          borderColor: '#2C3E50',
+                        },
+                      },
+                    }}
+                  />
+                  <TextField
+                    fullWidth
+                    label="Last Name*"
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleChange}
+                    error={!!errors.lastName}
+                    helperText={errors.lastName}
+                    variant="outlined"
+                    sx={{
+                      backgroundColor: 'white',
+                      '& .MuiOutlinedInput-root': {
+                        '& fieldset': {
+                          borderColor: 'transparent',
+                        },
+                        '&:hover fieldset': {
+                          borderColor: 'rgba(0, 0, 0, 0.23)',
+                        },
+                        '&.Mui-focused fieldset': {
+                          borderColor: '#2C3E50',
+                        },
+                      },
+                    }}
+                  />
+                </div>
 
-              <TextField
-                fullWidth
-                label="Email"
-                name="email"
-                type="email"
-                value={formData.email}
-                onChange={handleChange}
-                error={!!errors.email}
-                helperText={errors.email}
-                variant="outlined"
-              />
+                <TextField
+                  fullWidth
+                  label="Email*"
+                  name="email"
+                  type="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  error={!!errors.email}
+                  helperText={errors.email}
+                  variant="outlined"
+                  sx={{
+                    backgroundColor: 'white',
+                    '& .MuiOutlinedInput-root': {
+                      '& fieldset': {
+                        borderColor: 'transparent',
+                      },
+                      '&:hover fieldset': {
+                        borderColor: 'rgba(0, 0, 0, 0.23)',
+                      },
+                      '&.Mui-focused fieldset': {
+                        borderColor: '#2C3E50',
+                      },
+                    },
+                  }}
+                />
 
-              <TextField
-                fullWidth
-                label="Message"
-                name="message"
-                multiline
-                rows={4}
-                value={formData.message}
-                onChange={handleChange}
-                error={!!errors.message}
-                helperText={errors.message}
-                variant="outlined"
-              />
+                <TextField
+                  fullWidth
+                  label="Message"
+                  name="message"
+                  multiline
+                  rows={5}
+                  value={formData.message}
+                  onChange={handleChange}
+                  error={!!errors.message}
+                  helperText={errors.message}
+                  variant="outlined"
+                  sx={{
+                    backgroundColor: 'white',
+                    '& .MuiOutlinedInput-root': {
+                      '& fieldset': {
+                        borderColor: 'transparent',
+                      },
+                      '&:hover fieldset': {
+                        borderColor: 'rgba(0, 0, 0, 0.23)',
+                      },
+                      '&.Mui-focused fieldset': {
+                        borderColor: '#2C3E50',
+                      },
+                    },
+                  }}
+                />
 
-              <Button
-                type="submit"
-                variant="secondary"
-                style="filled"
-                arrow="right"
-              >
-                Get Connected
-              </Button>
-            </Stack>
-          </motion.form>
-        </Box>
+                <Button
+                  type="submit"
+                  variant="secondary"
+                  style="filled"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Sending..." : "Connect with us"}
+                </Button>
+              </Stack>
+            </form>
+          </motion.div>
+        </div>
       </div>
 
+      {/* Success Notification */}
       <Snackbar
         open={showSuccess}
         autoHideDuration={6000}
@@ -190,6 +274,23 @@ const Contact = () => {
           sx={{ width: "100%" }}
         >
           Thanks! We'll get back to you ASAP.
+        </Alert>
+      </Snackbar>
+
+      {/* Error Notification */}
+      <Snackbar
+        open={showError}
+        autoHideDuration={6000}
+        onClose={() => setShowError(false)}
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+      >
+        <Alert
+          onClose={() => setShowError(false)}
+          severity="error"
+          variant="filled"
+          sx={{ width: "100%" }}
+        >
+          Oops! There was an error sending your message. Please try again later.
         </Alert>
       </Snackbar>
     </>

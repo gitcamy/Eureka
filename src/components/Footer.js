@@ -99,13 +99,13 @@ const Footer = () => {
 
       {/* Footer Bottom */}
       <div className="footer-bottom">
-        <div className="footer-legal-links">
+        {/* <div className="footer-legal-links">
           <a href="#privacy-policy">Privacy Policy</a>
           <span className="separator">|</span>
           <a href="#terms-of-service">Terms of Service</a>
           <span className="separator">|</span>
           <a href="#cookie-policy">Cookie Policy</a>
-        </div>
+        </div> */}
         <p className="footer-copyright">
           &copy; {currentYear} Eureka Investments. All rights reserved.
         </p>
